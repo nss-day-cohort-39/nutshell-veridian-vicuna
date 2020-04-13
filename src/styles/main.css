@@ -25,72 +25,42 @@ main {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-  padding: 1.5rem;
+  padding: 1rem;
 }
 
-.user {
+main section {
+  min-width: 160px;
+  max-width: 40%;
+  width: 10%;
+  background: white;
   padding: 2em;
-  margin-right: 0.5rem;
-  margin-left: 0.5rem;
-  background: white;
-  width: 15% !important;
-  margin-bottom: 0.5em;
+  margin: 0.25rem;
 }
 
-.midsection {
-  padding: 1em 1rem 0.5rem;
-  margin-right: 0.5rem;
-  margin-left: 0.5rem;
-  background: white;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-  width: 50%;
-  margin-bottom: 0.5rem;
+section.user {
+  /*  */
 }
 
-.midsection .news {
-  width: 100%;
-  padding: 2rem;
-  background: white;
-  margin-right: 0.25rem;
-  margin-left: 0.25rem;
-  margin-bottom: 0.5rem;
+section.news {
+  /*  */
 }
 
-.midsection .events {
-  padding: 2rem;
-  background: white;
-  width: 40%;
-  flex-grow: 1;
-  margin-right: 0.25rem;
-  margin-left: 0.25rem;
-  margin-bottom: 0.5rem;
+section.events {
+  /*  */
 }
 
-.midsection .tasks {
-  padding: 2rem;
-  background: white;
-  width: 40%;
-  flex-grow: 1;
-  margin-right: 0.25rem;
-  margin-left: 0.25rem;
-  margin-bottom: 0.5rem;
+section.tasks {
+  /*  */
 }
 
-.chat {
-  padding: 2em;
-  background: white;
-  margin-right: 0.5rem;
-  margin-left: 0.5rem;
-  width: 15% !important;
+section.chat {
+  /*  */
 }
 
-@media only screen and (max-width: 1000px) {
-  .user,
-  .midsection,
-  .chat {
+@media (max-width: 500px) {
+  section {
+    min-width: initial !important;
+    max-width: initial !important;
     width: 100% !important;
   }
 }
