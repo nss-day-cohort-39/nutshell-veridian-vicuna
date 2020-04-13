@@ -38,7 +38,7 @@ main section {
 }
 
 section.user {
-  /*  */
+  min-width: 110px;
 }
 
 section.news {
@@ -54,7 +54,7 @@ section.tasks {
 }
 
 section.chat {
-  /*  */
+  min-width: 110px;
 }
 
 @media (max-width: 500px) {
