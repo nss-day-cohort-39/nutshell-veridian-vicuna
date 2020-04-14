@@ -6,6 +6,7 @@
 */
 
 import { useUsers } from "../users/userProvider.js"
+import { loadDashboard, clearDashboard } from "../loadDashboard.js"
 
 const eventHub = document.querySelector(".container")
 
@@ -17,13 +18,13 @@ const CheckUserPassValid = (username, password) => {
 
     //no users with this username
     if (foundUser === undefined) {
-        console.log('No user with this username found')
+
         return false
     }
 
     //check to see if password is valid
     if (foundUser.password !== password) {
-        console.log('Password is incorrect')
+
         return false
     }
 
@@ -43,9 +44,13 @@ eventHub.addEventListener("loginButtonClicked", event => {
         const userLoggedInEvent = new CustomEvent("userWasLoggedIn")
         eventHub.dispatchEvent(userLoggedInEvent)
 
+        //set the local session to the user's ID
         sessionStorage.setItem("activeUser", userId)
-        document.getElementById("sessionResult").innerHTML = sessionStorage.getItem("activeUser");
-        console.log(`logged in as user ID ${userId}`)
+        document.querySelector("#sessionResult").innerHTML = userId
+
+        //load the dashboard for the user
+        loadDashboard()
+
     } else {
         alert('Login cannot be completed')
     }

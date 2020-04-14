@@ -20,9 +20,14 @@
 */
 
 const eventHub = document.querySelector(".container")
+const currentUserId = sessionStorage.getItem("activeUser")
+document.querySelector("#sessionResult").innerHTML = currentUserId
 
-//default page state
+//initial page state, if user is logged in go to the dashboard, otherwise go to login
 let pageState = "login"
+if (currentUserId !== null) {
+    pageState = "dashboard"
+}
 
 //events that trigger a state change
 eventHub.addEventListener("showRegisterFormButtonClicked", event => {
@@ -32,6 +37,11 @@ eventHub.addEventListener("showRegisterFormButtonClicked", event => {
 
 eventHub.addEventListener("userWasLoggedIn", event => {
     pageState = "dashboard"
+    pageStateChanged()
+})
+
+eventHub.addEventListener("logoutButtonClicked", event => {
+    pageState = "login"
     pageStateChanged()
 })
 

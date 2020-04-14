@@ -3,7 +3,9 @@ import { ShowLoginForm } from "./userAuth/LoginForm.js";
 import { ShowRegisterForm } from "./userAuth/RegisterForm.js";
 import { getUsers } from "./users/userProvider.js";
 import "./userAuth/loginUser.js"
-import { userArea } from "./users/userArea.js";
+import { loadDashboard } from "./loadDashboard.js";
+
+const currentUserId = sessionStorage.getItem("activeUser")
 
 pageStateChanged()
 
@@ -15,5 +17,7 @@ Promise.all(promises)
     .then(() => {
         ShowLoginForm()
         ShowRegisterForm()
-        userArea()
+        if (currentUserId !== null) {
+            loadDashboard()
+        }
     })
