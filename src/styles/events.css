@@ -6,6 +6,7 @@
     overflow-y: scroll;
     min-height: 200px;
     max-height: 400px;
+    /* max-width: 300px; */
 }
 
 .singleEvent {
@@ -23,4 +24,20 @@
     padding: 1rem;
     margin: .4rem;
     font-size: 125%;
+}
+
+/* Container for the event form */
+.eventFormContainer{
+    margin: 1rem auto;
+    max-width: 300px;
+}
+
+/* The event form itself */
+.addEventForm {
+    display: flex;
+}
+
+/* The event form inputs */
+.event--label {
+    margin: .3rem 0rem;
 }

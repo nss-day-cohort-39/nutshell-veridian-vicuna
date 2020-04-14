@@ -33,3 +33,7 @@ main {
   margin: 0 auto;
   min-height: 500px;
 }
+
+.invisible{
+  display: none;
+}
