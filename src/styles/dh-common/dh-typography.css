@@ -1,0 +1,15 @@
+h1:first-of-type,
+h2:first-of-type,
+h3:first-of-type,
+h4:first-of-type,
+h5:first-of-type {
+  margin-top: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+p:last-of-type,
+ol:last-of-type,
+ul:last-of-type,
+li:last-of-type {
+  margin-bottom: 0;
+}

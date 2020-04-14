@@ -1,0 +1,82 @@
+.panel {
+  border: 1px solid var(--grey-100);
+  padding: 0.75em 1em;
+  background: white;
+  border-radius: 3px;
+  font-weight: 100;
+  font-size: 1em;
+  box-shadow: 0px 2px 10px -10px black;
+  /* margin-bottom: 0.75rem; */
+}
+
+.panel:last-of-type {
+  margin-bottom: 0rem;
+}
+
+.panel h4,
+.panel h5 {
+  margin: 0.25em 0 0.5em;
+  font-family: var(--font-copy);
+  font-weight: regular;
+}
+
+.panel h4 {
+  font-size: 0.9rem;
+}
+
+.panel p {
+  color: var(--grey-400);
+  margin: 0;
+  line-height: 1.25;
+}
+
+.panel table {
+  width: 100%;
+}
+
+.panel td {
+  color: var(--grey-400);
+  font-size: 0.9em;
+  font-weight: 100;
+  margin: 0;
+  line-height: 1.25;
+  vertical-align: top;
+  /* min-width: 9em; */
+}
+
+.panel td:first-of-type {
+  width: 40%;
+}
+
+.panel td:first-of-type {
+  color: var(--grey-400);
+}
+
+.panel button {
+  font-size: 0.8rem;
+  margin-top: 0.5em !important;
+  margin-bottom: 0.25em !important;
+}
+
+#miniModal {
+  padding: 2em 3em;
+  border: 1px solid darkgray;
+  border-radius: 4px;
+  width: 200px;
+  box-shadow: 0 2px 20px -10px black;
+  box-shadow: 0px 0px 0px 1000px hsla(0, 0%, 0%, 0.71);
+}
+
+#miniModal li {
+  line-height: 1;
+}
+
+#miniModal h3 {
+  display: inline-block;
+  line-height: 1;
+}
+
+#miniModal p {
+  line-height: 1.7;
+  font-weight: 200;
+}
