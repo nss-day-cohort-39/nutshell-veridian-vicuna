@@ -1,7 +1,7 @@
-export const ChatHTML = (message) => {
+export const ChatHTML = (message, user) => {
     return `
-        <div class="chat__message">
-            <p></p><p>${message.message}</p>
+        <div class="chatPreview__message">
+            <p>${user.username}</p><p>${message.message}</p>
         </div> 
     `
 }
