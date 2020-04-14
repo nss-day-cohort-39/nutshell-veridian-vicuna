@@ -1,6 +1,9 @@
-import { NewsForm } from './notes/NewsForm.js'
-import { NewssList } from './notes/NewsList.js'
+import { NewsForm } from './news/NewsForm.js'
+import { NewsList } from './news/NewsList.js'
 //
-getCriminals()
-  .then(NewssList) //
-  .then(NewsForm)
+// getUsers()
+// .then(NewsList) //
+// .then(NewsForm)
+
+NewsList()
+NewsForm()

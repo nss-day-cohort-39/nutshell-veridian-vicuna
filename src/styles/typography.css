@@ -10,13 +10,43 @@ h6 {
   color: rgb(62, 71, 80);
 }
 
+h1 {
+  font-size: 1.5rem;
+  letter-spacing: 0ch;
+}
+
+h2 {
+  font-size: 1.25rem;
+  letter-spacing: 0ch;
+}
+
+h3 {
+  font-size: 1rem;
+  letter-spacing: 0ch;
+}
+
+h4 {
+  font-size: 0.85rem;
+  letter-spacing: 0ch;
+}
+
+h5 {
+  font-size: 0.75rem;
+  letter-spacing: 0ch;
+}
+
+h6 {
+  font-size: 0.65rem;
+  letter-spacing: 0ch;
+}
+
 p,
 ol,
 ul,
 li {
   margin-top: 0;
   margin-bottom: 0.3rem;
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 300;
   letter-spacing: 0.05ch;
   -webkit-font-smoothing: auto;

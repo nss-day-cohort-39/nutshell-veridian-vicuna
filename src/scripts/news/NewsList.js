@@ -1,5 +1,6 @@
 import { News } from './News.js'
-import { getNews, useNews } from './NewsDataProvider.js'
+import { getNews, useNews } from './NewsProvider.js'
+import { useUsers } from './UsersProvider.js'
 
 const eventHub = document.querySelector('.container')
 const contentTarget = document.querySelector('.news')
@@ -29,17 +30,16 @@ const render = () => {
 
   getNews().then(() => {
     const allTheNews = useNews()
+    const allTheUsers = useUsers()
 
     contentTarget.innerHTML = allTheNews
       .map((currentNewsObject) => {
         // Find the criminal for the current news
-        const theFoundCriminal = allTheCriminals.find(
-          (currentCriminalObject) => {
-            return currentNewsObject.criminal === currentCriminalObject.id
-          }
-        )
+        const theFoundUser = allTheUsers.find((currentUserObject) => {
+          return currentNewsObject.criminal === currentUserObject.id
+        })
 
-        return News(currentNewsObject, theFoundCriminal)
+        return News(currentNewsObject, theFoundUser)
       })
       .join('')
   })
