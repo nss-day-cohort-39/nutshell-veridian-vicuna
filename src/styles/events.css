@@ -1,7 +1,12 @@
 .events {
-   text-align: center; 
+   text-align: center;
 }
 
+.eventList {
+    overflow-y: scroll;
+    min-height: 200px;
+    max-height: 400px;
+}
 
 .singleEvent {
     border: 1px solid #e0e0e0;

@@ -8,7 +8,7 @@ contentTarget.innerHTML = `
 `
 
 const render = eventsToRender => {
-    contentTarget.innerHTML += eventsToRender.map(
+    return eventsToRender.map(
         (eventObject) => {
             return Event(eventObject)
         }
@@ -17,7 +17,6 @@ const render = eventsToRender => {
 
 
 export const EventList = () => {
-    // Use the journal entry data from the data provider component
     const events = useEvents()
-    render(events)
+    contentTarget.innerHTML += `<div class="eventList"> ${render(events)}</div>`
 }
