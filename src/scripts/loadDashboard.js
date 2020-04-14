@@ -7,8 +7,8 @@
 
 import { userArea } from "./users/userArea.js"
 
-export const loadDashboard = () => {
-    userArea()
+export const loadDashboard = (currentUserId) => {
+    userArea(currentUserId)
 }
 
 export const clearDashboard = () => {

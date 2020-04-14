@@ -11,13 +11,11 @@ import { ShowLogoutButton } from "../userAuth/LogoutButton.js"
 const contentTarget = document.querySelector(".user")
 const currentUserId = document.querySelector("#sessionResult").innerHTML
 
-export const userArea = () => {
+export const userArea = (currentUserId) => {
     const users = useUsers()
 
-    console.log(currentUserId)
-        //get current user's info
+    //get current user's info
     const currentUserInfo = users.find(user => user.id === parseInt(currentUserId))
-    console.log(currentUserInfo)
 
     contentTarget.innerHTML = `Welcome, ${currentUserInfo.username}!`
     contentTarget.innerHTML += ShowLogoutButton()

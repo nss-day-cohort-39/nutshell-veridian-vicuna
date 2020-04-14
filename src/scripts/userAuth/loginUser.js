@@ -49,7 +49,7 @@ eventHub.addEventListener("loginButtonClicked", event => {
         document.querySelector("#sessionResult").innerHTML = userId
 
         //load the dashboard for the user
-        loadDashboard()
+        loadDashboard(userId)
 
     } else {
         alert('Login cannot be completed')

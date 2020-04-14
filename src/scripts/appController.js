@@ -21,7 +21,6 @@
 
 const eventHub = document.querySelector(".container")
 const currentUserId = sessionStorage.getItem("activeUser")
-document.querySelector("#sessionResult").innerHTML = currentUserId
 
 //initial page state, if user is logged in go to the dashboard, otherwise go to login
 let pageState = "login"

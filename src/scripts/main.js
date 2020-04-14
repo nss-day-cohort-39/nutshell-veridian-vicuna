@@ -18,6 +18,6 @@ Promise.all(promises)
         ShowLoginForm()
         ShowRegisterForm()
         if (currentUserId !== null) {
-            loadDashboard()
+            loadDashboard(currentUserId)
         }
     })
