@@ -1,6 +1,5 @@
 import { News } from './News.js'
 import { getNews, useNews } from './NewsProvider.js'
-import { useUsers } from './UsersProvider.js'
 
 const eventHub = document.querySelector('.container')
 const contentTarget = document.querySelector('.news')
@@ -21,6 +20,8 @@ eventHub.addEventListener('allNewsClicked', (customEvent) => {
   }
 })
 
+contentTarget.innerHTML = `<h3>News</h3>`
+
 const render = () => {
   if (visibility) {
     contentTarget.classList.remove('hide')
@@ -30,16 +31,10 @@ const render = () => {
 
   getNews().then(() => {
     const allTheNews = useNews()
-    const allTheUsers = useUsers()
 
-    contentTarget.innerHTML = allTheNews
+    contentTarget.innerHTML += allTheNews
       .map((currentNewsObject) => {
-        // Find the criminal for the current news
-        const theFoundUser = allTheUsers.find((currentUserObject) => {
-          return currentNewsObject.criminal === currentUserObject.id
-        })
-
-        return News(currentNewsObject, theFoundUser)
+        return News(currentNewsObject)
       })
       .join('')
   })

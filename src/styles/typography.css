@@ -8,36 +8,50 @@ h6 {
   margin-bottom: 0.3rem;
   letter-spacing: 0ch;
   color: rgb(62, 71, 80);
+  text-align: left;
+  align-self: flex-start;
 }
 
 h1 {
   font-size: 1.5rem;
   letter-spacing: 0ch;
+  text-align: left;
+  align-self: flex-start;
 }
 
 h2 {
   font-size: 1.25rem;
   letter-spacing: 0ch;
+  text-align: left;
+  align-self: flex-start;
 }
 
 h3 {
   font-size: 1rem;
   letter-spacing: 0ch;
+  text-align: left;
+  align-self: flex-start;
 }
 
 h4 {
   font-size: 0.85rem;
   letter-spacing: 0ch;
+  text-align: left;
+  align-self: flex-start;
 }
 
 h5 {
   font-size: 0.75rem;
   letter-spacing: 0ch;
+  text-align: left;
+  align-self: flex-start;
 }
 
 h6 {
   font-size: 0.65rem;
   letter-spacing: 0ch;
+  text-align: left;
+  align-self: flex-start;
 }
 
 p,
@@ -46,7 +60,7 @@ ul,
 li {
   margin-top: 0;
   margin-bottom: 0.3rem;
-  font-size: 1rem;
+  font-size: 0.85rem;
   font-weight: 300;
   letter-spacing: 0.05ch;
   -webkit-font-smoothing: auto;

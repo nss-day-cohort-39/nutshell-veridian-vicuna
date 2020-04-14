@@ -51,6 +51,15 @@ main.gridWrap {
   }
 }
 
+section.user,
+section.news,
+section.events,
+section.tasks,
+section.chat {
+  min-width: 160px;
+  min-height: 160px;
+}
+
 section.user {
   grid-area: user;
 }

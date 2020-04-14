@@ -1,0 +1,25 @@
+.news {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.newsPanel {
+  width: 100%;
+  margin-bottom: 0.5rem;
+}
+
+.news h4 {
+  color: var(--teal500);
+  align-self: flex-start !important;
+}
+
+.news h4 a {
+  color: var(--teal500);
+  text-decoration: none;
+}
+
+.news h4 a:hover {
+  text-decoration: solid;
+}
