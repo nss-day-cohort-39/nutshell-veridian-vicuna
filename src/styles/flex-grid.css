@@ -1,0 +1,116 @@
+main.mainflexwrap {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+}
+
+@media (max-width: 900px) {
+  main.mainflexwrap {
+    flex-wrap: wrap;
+  }
+}
+
+.user {
+  margin-left: 0.5rem;
+  /* margin-bottom: 0.5em; */
+  flex: 160px;
+  min-width: 160px;
+}
+
+@media (max-width: 900px) {
+  .user {
+    margin-left: 0rem;
+    margin-right: 0rem;
+    margin-bottom: 0.5rem;
+  }
+}
+
+.midsection {
+  padding: 1em 0.75rem 0.5rem;
+  /* Flex within flex for middle section*/
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  /* width: 50%; */
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  /* margin-bottom: 0.5rem; */
+  flex: auto;
+  min-width: 300px;
+}
+
+@media (max-width: 900px) {
+  .midsection {
+    margin-left: 0rem;
+    margin-right: 0rem;
+    margin-bottom: 0rem;
+  }
+}
+
+.midsection .news {
+  margin-right: 0.25rem;
+  margin-left: 0.25rem;
+  /* margin-bottom: 0.5rem; */
+  flex: auto;
+  min-width: 300px;
+}
+
+@media (max-width: 900px) {
+  .midsection .news {
+    margin-left: 0rem;
+    margin-right: 0rem;
+    margin-bottom: 0rem;
+  }
+}
+
+.midsection .events {
+  margin-right: 0.25rem;
+  margin-left: 0.25rem;
+  margin-bottom: 0.5rem;
+  flex: auto;
+  min-width: 300px;
+}
+
+@media (max-width: 900px) {
+  .midsection .events {
+    margin-left: 0rem;
+    margin-right: 0rem;
+    margin-bottom: 0rem;
+  }
+}
+
+.midsection .tasks {
+  margin-left: 0.25rem;
+  margin-bottom: 0.5rem;
+  margin-right: 0.25rem;
+  flex-grow: auto;
+  min-width: 300px;
+}
+
+@media (max-width: 900px) {
+  .midsection .tasks {
+    margin-left: 0rem;
+    margin-right: 0rem;
+    margin-bottom: 0rem;
+  }
+}
+
+.chat {
+  margin-right: 0.5rem;
+  margin-left: 0.5rem;
+  flex: 160px;
+  min-width: 160px;
+}
+
+@media only screen and (max-width: 1000px) {
+  .user,
+  .midsection,
+  .chat {
+    width: 100%;
+    margin-left: 0rem;
+    margin-right: 0rem;
+    margin-bottom: 0rem;
+  }
+}
