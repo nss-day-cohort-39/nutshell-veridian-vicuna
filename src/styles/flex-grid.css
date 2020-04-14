@@ -2,7 +2,7 @@ main.mainflexwrap {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
-  justify-content: center;
+  justify-content: space-between;
 }
 
 @media (max-width: 900px) {
@@ -13,7 +13,6 @@ main.mainflexwrap {
 
 .user {
   margin-left: 0.5rem;
-  /* margin-bottom: 0.5em; */
   flex: 160px;
   min-width: 160px;
 }
@@ -27,64 +26,52 @@ main.mainflexwrap {
 }
 
 .midsection {
-  padding: 1em 0.75rem 0.5rem;
-  /* Flex within flex for middle section*/
+  padding: 1em 0.75rem;
+  flex: auto;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-  /* width: 50%; */
-  margin-left: 0.5rem;
-  margin-right: 0.5rem;
-  /* margin-bottom: 0.5rem; */
-  flex: auto;
+  margin-left: 1rem;
+  margin-right: 1rem;
   min-width: 300px;
 }
 
 @media (max-width: 900px) {
   .midsection {
-    margin-left: 0rem;
-    margin-right: 0rem;
     margin-bottom: 0rem;
   }
 }
 
 .midsection .news {
-  margin-right: 0.25rem;
-  margin-left: 0.25rem;
-  /* margin-bottom: 0.5rem; */
-  flex: auto;
+  flex: 2;
   min-width: 300px;
+  margin-bottom: 0.5rem;
 }
 
 @media (max-width: 900px) {
   .midsection .news {
     margin-left: 0rem;
     margin-right: 0rem;
-    margin-bottom: 0rem;
+    min-width: initial;
   }
 }
 
 .midsection .events {
-  margin-right: 0.25rem;
-  margin-left: 0.25rem;
-  margin-bottom: 0.5rem;
   flex: auto;
   min-width: 300px;
+  margin-bottom: 0.5rem;
 }
 
 @media (max-width: 900px) {
   .midsection .events {
     margin-left: 0rem;
     margin-right: 0rem;
-    margin-bottom: 0rem;
+    min-width: initial;
   }
 }
 
 .midsection .tasks {
-  margin-left: 0.25rem;
-  margin-bottom: 0.5rem;
-  margin-right: 0.25rem;
   flex-grow: auto;
   min-width: 300px;
 }
@@ -94,23 +81,23 @@ main.mainflexwrap {
     margin-left: 0rem;
     margin-right: 0rem;
     margin-bottom: 0rem;
+    min-width: initial;
   }
 }
 
 .chat {
-  margin-right: 0.5rem;
-  margin-left: 0.5rem;
   flex: 160px;
   min-width: 160px;
 }
 
-@media only screen and (max-width: 1000px) {
+@media only screen and (max-width: 900px) {
   .user,
   .midsection,
   .chat {
     width: 100%;
     margin-left: 0rem;
     margin-right: 0rem;
-    margin-bottom: 0rem;
+    margin-bottom: 0.5rem;
+    min-width: initial;
   }
 }
