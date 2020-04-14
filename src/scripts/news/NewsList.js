@@ -8,6 +8,14 @@ eventHub.addEventListener('newsStateChanged', (customEvent) => {
   render()
 })
 
+// .news is wrap div
+contentTarget.innerHTML = `
+  <div class="headflexRow">
+    <h2>News</h2>
+    <button class="plusBtn">+</button>
+  </div>
+`
+
 const render = (newsToRender) => {
   return newsToRender
     .map((newsObject) => {
@@ -15,12 +23,9 @@ const render = (newsToRender) => {
     })
     .join('')
 }
-
 export const NewsList = () => {
   const news = useNews()
-  contentTarget.insertAdjacentHTML(
-    'afterbegin',
-    `<h3>News</h3>
-     ${render(news)}`
-  )
+  contentTarget.innerHTML += `
+    <div class="newsList">${render(news)}</div>
+  `
 }

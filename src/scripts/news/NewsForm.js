@@ -1,5 +1,4 @@
 import { saveNews, useNews } from './NewsProvider.js'
-// import { useUsers } from './UsersProvider.js'
 
 const eventHub = document.querySelector('.container')
 const contentTarget = document.querySelector('.newsForm')
@@ -28,7 +27,7 @@ contentTarget.addEventListener('click', (clickEvent) => {
       newsHead: newsText,
       newsSynopsis: newsText,
       newsUrl: newsText,
-      timestamp: Date.now(),
+      // timestamp: Date.now(),
     }
 
     // Change API state and application state

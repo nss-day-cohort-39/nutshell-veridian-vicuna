@@ -7,7 +7,7 @@ h6 {
   font-weight: 600;
   margin-bottom: 0.3rem;
   letter-spacing: 0ch;
-  color: rgb(62, 71, 80);
+  color: var(--headColor);
   text-align: left;
   align-self: flex-start;
 }
@@ -16,42 +16,36 @@ h1 {
   font-size: 1.5rem;
   letter-spacing: 0ch;
   text-align: left;
-  align-self: flex-start;
 }
 
 h2 {
   font-size: 1.25rem;
   letter-spacing: 0ch;
   text-align: left;
-  align-self: flex-start;
 }
 
 h3 {
   font-size: 1rem;
   letter-spacing: 0ch;
   text-align: left;
-  align-self: flex-start;
 }
 
 h4 {
   font-size: 0.85rem;
   letter-spacing: 0ch;
   text-align: left;
-  align-self: flex-start;
 }
 
 h5 {
   font-size: 0.75rem;
   letter-spacing: 0ch;
   text-align: left;
-  align-self: flex-start;
 }
 
 h6 {
   font-size: 0.65rem;
   letter-spacing: 0ch;
   text-align: left;
-  align-self: flex-start;
 }
 
 p,
@@ -63,7 +57,40 @@ li {
   font-size: 0.85rem;
   font-weight: 300;
   letter-spacing: 0.05ch;
+  line-height: 1.5;
   -webkit-font-smoothing: auto;
+}
+
+p.small {
+  font-size: small;
+}
+
+p.smaller {
+  font-size: smaller;
+}
+
+p.x-small {
+  font-size: x-small;
+}
+
+p.xx-small {
+  font-size: xx-small;
+}
+
+p.large {
+  font-size: large;
+}
+
+p.largeer {
+  font-size: larger;
+}
+
+p.x-large {
+  font-size: x-large;
+}
+
+p.xx-large {
+  font-size: xx-large;
 }
 
 h1:first-of-type,
