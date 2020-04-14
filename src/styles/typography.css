@@ -115,3 +115,17 @@ ul:last-of-type,
 li:last-of-type {
   margin-bottom: 0;
 }
+
+.user h1,
+.user h2,
+.news h1,
+.news h2,
+.events h1,
+.events h2,
+.tasks h1,
+.tasks h2,
+.chat h1,
+.chat h2 {
+  line-height: 1;
+  margin-bottom: 0.6rem;
+}

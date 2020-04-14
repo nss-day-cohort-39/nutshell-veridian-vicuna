@@ -28,13 +28,6 @@
   margin-bottom: 0.15rem;
 }
 
-.news h1,
-.news h2 {
-  line-height: 1;
-  margin-bottom: 0.6rem;
-  display: inline-block;
-}
-
 .news h4 {
   color: var(--teal700);
 }
