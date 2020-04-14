@@ -44,6 +44,7 @@ eventHub.addEventListener("loginButtonClicked", event => {
         eventHub.dispatchEvent(userLoggedInEvent)
 
         sessionStorage.setItem("activeUser", userId)
+        document.getElementById("sessionResult").innerHTML = sessionStorage.getItem("activeUser");
         console.log(`logged in as user ID ${userId}`)
     } else {
         alert('Login cannot be completed')

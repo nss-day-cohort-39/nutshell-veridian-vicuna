@@ -7,8 +7,8 @@
 
 let users = []
 
-export const getUsers = (userId = 0) => {
-    return fetch("http://localhost:3000/users")
+export const getUsers = () => {
+    return fetch("http://localhost:8088/users")
         .then(response => response.json())
         .then(response => users = response)
 }

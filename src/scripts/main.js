@@ -3,6 +3,7 @@ import { ShowLoginForm } from "./userAuth/LoginForm.js";
 import { ShowRegisterForm } from "./userAuth/RegisterForm.js";
 import { getUsers } from "./users/userProvider.js";
 import "./userAuth/loginUser.js"
+import { userArea } from "./users/userArea.js";
 
 pageStateChanged()
 
@@ -14,4 +15,5 @@ Promise.all(promises)
     .then(() => {
         ShowLoginForm()
         ShowRegisterForm()
+        userArea()
     })
