@@ -4,8 +4,10 @@ h3,
 h4,
 h5,
 h6 {
-  font-weight: bold;
+  font-weight: 600;
   margin-bottom: 0.3rem;
+  letter-spacing: 0ch;
+  color: rgb(62, 71, 80);
 }
 
 p,
@@ -14,7 +16,10 @@ ul,
 li {
   margin-top: 0;
   margin-bottom: 0.3rem;
-  font-size: 1rem;
+  font-size: 1.1rem;
+  font-weight: 300;
+  letter-spacing: 0.05ch;
+  -webkit-font-smoothing: auto;
 }
 
 h1:first-of-type,
