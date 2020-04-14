@@ -1,0 +1,46 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+  letter-spacing: 0ch;
+  color: rgb(62, 71, 80);
+}
+
+p,
+ol,
+ul,
+li {
+  margin-top: 0;
+  margin-bottom: 0.3rem;
+  font-size: 1.1rem;
+  font-weight: 300;
+  letter-spacing: 0.05ch;
+  -webkit-font-smoothing: auto;
+}
+
+h1:first-of-type,
+h2:first-of-type,
+h3:first-of-type,
+h4:first-of-type,
+h5:first-of-type,
+h6:first-of-type {
+  margin-top: 0;
+}
+
+p:first-of-type,
+ol:first-of-type,
+ul:first-of-type,
+li:first-of-type {
+  margin-top: 0;
+}
+
+p:last-of-type,
+ol:last-of-type,
+ul:last-of-type,
+li:last-of-type {
+  margin-bottom: 0;
+}
