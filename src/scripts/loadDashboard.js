@@ -5,7 +5,7 @@
 
     Authors: Heidi Sprouse
 */
-
+import { ChatList } from './chat/ChatList.js'
 import { userArea } from "./users/userArea.js"
 import { EventList } from "./events/EventList.js"
 import { EventForm } from "./events/EventForm.js"
@@ -15,8 +15,9 @@ import { NewsList } from './news/NewsList.js'
 export const loadDashboard = (currentUserId) => {
     userArea(currentUserId)
     EventForm()
-    EventList(currentUserId) //will need to edit EventList to take a parameter of currentUserId
+    EventList(currentUserId)
     NewsList(currentUserId)
+    ChatList()
 }
 
 //clears the dashboard to prevent conflicts
