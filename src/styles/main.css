@@ -6,6 +6,7 @@
 @import './news.css';
 @import './events.css';
 @import './buttons.css';
+@import './login-register.css';
 
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600&display=swap');
 
@@ -36,4 +37,8 @@ main {
   max-width: 1200px;
   margin: 0 auto;
   min-height: 500px;
+}
+
+.hide {
+  display: none !important;
 }

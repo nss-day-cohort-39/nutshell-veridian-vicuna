@@ -1,5 +1,5 @@
 import { News } from './News.js'
-import { useNews } from './NewsProvider.js'
+import { useNews } from './newsProvider.js'
 
 const eventHub = document.querySelector('.container')
 const contentTarget = document.querySelector('.news')
@@ -23,7 +23,7 @@ const render = (newsToRender) => {
     })
     .join('')
 }
-export const NewsList = () => {
+export const NewsList = (currentUserId) => {
   const news = useNews()
   contentTarget.innerHTML += `
     <div class="newsList">${render(news)}</div>

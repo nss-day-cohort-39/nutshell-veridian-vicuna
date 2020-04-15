@@ -1,4 +1,4 @@
-import { saveNews, useNews } from './NewsProvider.js'
+import { saveNews, useNews } from './newsProvider.js'
 
 const eventHub = document.querySelector('.container')
 const contentTarget = document.querySelector('.newsForm')
