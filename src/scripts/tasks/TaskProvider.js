@@ -22,12 +22,16 @@ const dispatchStateChangeEvent = () => {
 let tasks = []
 
 
+// Create a copy of our data
+export const useTasks = () => tasks.slice()
+
+
 // Get the data from the database
 export const getTasks = () => {
     return fetch('http://localhost:8088/tasks')
         .then(response => response.json())
         .then(parsedTasks => {
-            Tasks = parsedTasks
+            tasks = parsedTasks
         })
 
 }
@@ -46,7 +50,7 @@ export const saveTask = task => {
 }
 
 // Make it possible to delete a task from the database
-export const deleteNote = taskId => {
+export const deleteTask = taskId => {
     return fetch(`http://localhost:8088/notes/${taskId}`, {
         method: "DELETE"
     })

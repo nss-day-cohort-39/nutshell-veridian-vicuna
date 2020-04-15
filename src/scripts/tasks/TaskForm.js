@@ -3,7 +3,8 @@
     representation of the task form 
 */
 
-const contentTarget = document.querySelector(".")
+
+const contentTarget = document.querySelector(".tasks")
 
 // The Task form HTML
 export const TaskForm = () => {
