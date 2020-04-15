@@ -1,0 +1,32 @@
+let news = []
+
+const eventHub = document.querySelector('.news')
+
+const dispatchStateChangeEvent = () => {
+  const newsStateChangedEvent = new CustomEvent('newsStateChanged')
+
+  eventHub.dispatchEvent(newsStateChangedEvent)
+}
+
+export const useNews = () =>
+  news.sort((c, n) => n.timestamp - c.timestamp).slice()
+
+export const getNews = () => {
+  return fetch('http://localhost:8088/news')
+    .then((response) => response.json())
+    .then((parsedNews) => {
+      news = parsedNews
+    })
+}
+
+export const saveNews = (news) => {
+  return fetch('http://localhost:8088/news', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(news),
+  })
+    .then(getNews)
+    .then(dispatchStateChangeEvent)
+}
