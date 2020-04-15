@@ -13,12 +13,12 @@ contentTarget.innerHTML = `
 <button id='showEventForm'>Toggle Event Form</button>
 `
 
-const render = eventsToRender => {
-    return eventsToRender.map(
-        (eventObject) => {
-            return Event(eventObject)
-        }
-    ).join("")
+const render = (eventsToRender) => {
+  return eventsToRender
+    .map((eventObject) => {
+      return Event(eventObject)
+    })
+    .join('')
 }
 
 export const EventList = (currentUserId) => {
