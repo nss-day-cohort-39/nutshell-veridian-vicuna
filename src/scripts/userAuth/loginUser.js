@@ -1,6 +1,6 @@
 /*
     Login User Functions
-    -These functions check to see if a user's info is valid, and if so logs them in
+    -These functions check to see if a user's info is valid, and if so logs them in when the login button is clicked
 
     Authors: Heidi Sprouse
 */
@@ -39,6 +39,10 @@ eventHub.addEventListener("loginButtonClicked", event => {
 
     const userId = CheckUserPassValid(username, password)
 
+    //clear out the login form
+    document.querySelector("#login__username").value = ''
+    document.querySelector("#login__password").value = ''
+
     if (userId !== false) {
 
         const userLoggedInEvent = new CustomEvent("userWasLoggedIn")
@@ -46,7 +50,6 @@ eventHub.addEventListener("loginButtonClicked", event => {
 
         //set the local session to the user's ID
         sessionStorage.setItem("activeUser", userId)
-        document.querySelector("#sessionResult").innerHTML = userId
 
         //load the dashboard for the user
         loadDashboard(userId)

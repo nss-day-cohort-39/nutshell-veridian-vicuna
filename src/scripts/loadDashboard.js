@@ -6,9 +6,11 @@
 */
 
 import { userArea } from "./users/userArea.js"
+import { EventList } from "./events/EventList.js"
 
 export const loadDashboard = (currentUserId) => {
     userArea(currentUserId)
+    EventList() //will need to edit EventList to take a parameter of currentUserId
 }
 
 export const clearDashboard = () => {

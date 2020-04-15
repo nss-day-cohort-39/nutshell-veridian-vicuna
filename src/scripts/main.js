@@ -4,13 +4,15 @@ import { ShowRegisterForm } from "./userAuth/RegisterForm.js";
 import { getUsers } from "./users/userProvider.js";
 import "./userAuth/loginUser.js"
 import { loadDashboard } from "./loadDashboard.js";
+import { getEvents } from "./events/eventProvider.js";
 
 const currentUserId = sessionStorage.getItem("activeUser")
 
 pageStateChanged()
 
 const promises = [
-    getUsers()
+    getUsers(),
+    getEvents()
 ]
 
 Promise.all(promises)

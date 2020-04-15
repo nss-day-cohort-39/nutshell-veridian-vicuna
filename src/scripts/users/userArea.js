@@ -9,7 +9,6 @@ import { useUsers } from "./userProvider.js"
 import { ShowLogoutButton } from "../userAuth/LogoutButton.js"
 
 const contentTarget = document.querySelector(".user")
-const currentUserId = document.querySelector("#sessionResult").innerHTML
 
 export const userArea = (currentUserId) => {
     const users = useUsers()

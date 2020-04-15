@@ -44,6 +44,16 @@ eventHub.addEventListener("logoutButtonClicked", event => {
     pageStateChanged()
 })
 
+eventHub.addEventListener("registerBackButtonClicked", event => {
+    pageState = "login"
+    pageStateChanged()
+})
+
+eventHub.addEventListener("registerButtonClicked", event => {
+    pageState = "login"
+    pageStateChanged()
+})
+
 //resets the components
 const hideAllComponents = () => {
     const componentArray = [

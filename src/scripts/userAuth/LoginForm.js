@@ -28,7 +28,7 @@ export const ShowLoginForm = () => {
     `
 }
 
-//login the user
+//broadcast the login data to loginUser.js
 contentTarget.addEventListener("click", event => {
     if (event.target.id === "loginButton") {
         const loginButtonClickEvent = new CustomEvent("loginButtonClicked", {
