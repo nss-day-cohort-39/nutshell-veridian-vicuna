@@ -7,6 +7,7 @@
 // Imports
 import { deleteTask, getTasks, useTasks } from "./TaskProvider.js"
 import { Task } from "./Task.js"
+import { useUsers } from "../users/userProvider.js"
 
 
 // Assign Variable names to DOM targets
@@ -30,19 +31,16 @@ contentTarget.addEventListener("click", clickEvent => {
 const renderTasks = () => {
     getTasks().then(() => {
         const allTheTasks = useTasks()
+        const allTheUsers = useUsers()
         // Convert the tasks from an aray of objects to an array of strings
-        contentTarget.innerHTML = allTheTasks.map(
-            (currentTaskObject) => {
-                return(
-                    currentTaskObject
-                )
-            }
+        const currentUserTasks = allTheTasks.filter(
+            
         )
 
-        Task(currentTaskObject)
-    })
+        contentTarget.innerhtml += currentUserTasks.map(task => Task(task))
+    }).join("")
 }
 
-export const TaskList = () => {
+export const TaskList = (currentUserId) => {
     renderTasks()
 }
