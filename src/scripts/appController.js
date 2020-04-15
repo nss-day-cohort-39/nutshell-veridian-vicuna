@@ -49,7 +49,7 @@ eventHub.addEventListener("registerBackButtonClicked", event => {
     pageStateChanged()
 })
 
-eventHub.addEventListener("registerButtonClicked", event => {
+eventHub.addEventListener("userWasRegistered", event => {
     pageState = "login"
     pageStateChanged()
 })

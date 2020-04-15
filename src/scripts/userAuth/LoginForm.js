@@ -6,25 +6,31 @@
 */
 
 const eventHub = document.querySelector(".container")
-const contentTarget = document.querySelector("#login>section")
+const contentTarget = document.querySelector("#login")
 
 export const ShowLoginForm = () => {
     contentTarget.innerHTML = `
-    <h2>Login</h2>
-        <p>
-            <label for="login_username">Username</label><br />
-            <input id="login__username" type="text" value="" />
-        </p>
-        <p>
-            <label for="login_password">Password</label><br />
-            <input id="login__password" type="password" value="" />
-        </p>
-        <p>
-            <button id="loginButton">Login</button>
-        </p>
-        <p>
-            <button id="showRegisterFormButton">Register</button>
-        </p>
+    <section  class="box userAuth">
+        <h2>Welcome to Nutshell!</h2>
+        <p>Please login to your dashboard.</p>
+    </section>
+    <section  class="box userAuth">
+        <h2>Login</h2>
+            <p>
+                <label for="login_username">Username</label><br />
+                <input id="login__username" type="text" value="" />
+            </p>
+            <p>
+                <label for="login_password">Password</label><br />
+                <input id="login__password" type="password" value="" />
+            </p>
+            <p>
+                <button id="loginButton">Login</button>
+            </p>
+            <p>
+                Not registered yet? <a id="showRegisterFormButton" href="#">Sign up here!</a>
+            </p>
+    </section>
     `
 }
 
