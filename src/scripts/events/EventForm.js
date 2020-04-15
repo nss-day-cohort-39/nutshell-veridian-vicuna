@@ -13,10 +13,10 @@ eventHub.addEventListener("eventFormButtonClicked", customEvent => {
     visibility = !visibility
 
     if (visibility) {
-        formTarget.classList.remove("invisible")
+        formTarget.classList.remove("hide")
     }
     else {
-        formTarget.classList.add("invisible")
+        formTarget.classList.add("hide")
     }
 })
 
@@ -43,7 +43,7 @@ contentTarget.addEventListener("click", clickEvent => {
 const render = () => {
     
     contentTarget.innerHTML += `
-    <div class="eventFormContainer invisible">
+    <div class="eventFormContainer hide">
         <fieldset class="addEventForm">
             <label class="event--label event--name" for="eventName">Event Name:</label>
             <textarea id="eventName"></textarea>

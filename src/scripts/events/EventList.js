@@ -21,7 +21,7 @@ const render = eventsToRender => {
     ).join("")
 }
 
-export const EventList = () => {
+export const EventList = (currentUserId) => {
     const events = useEvents()
     contentTarget.innerHTML += `<div class="eventList"> ${render(events)}</div>`
 }
