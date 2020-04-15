@@ -5,12 +5,12 @@ export const Event = eventObject => {
     return `
         <article class="singleEvent">
         <div class="headflexRow">
-            <h3 class="eventName">${eventObject.name}</h3>
+            <h2 class="eventName">${eventObject.name}</h2>
             
             <button id="deleteEvent--${eventObject.id}">Delete Event</button>
         </div>
-            <section>${eventObject.date}</section>
-            <section>${eventObject.location}</section>
+            <section>Date: ${eventObject.date}</section>
+            <section>Location: ${eventObject.location}</section>
         </article>
             `
         }
