@@ -27,6 +27,8 @@ export const ShowLoginForm = () => {
             <p>
                 <button id="loginButton">Login</button>
             </p>
+            <p class="tip">Tip: Usernames and passwords are case sensitive</p>
+            <hr />
             <p>
                 Not registered yet? <a id="showRegisterFormButton" href="#">Sign up here!</a>
             </p>

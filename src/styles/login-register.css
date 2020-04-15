@@ -14,5 +14,12 @@
 #login hr,
 #register hr {
     border: 0;
-    border-top: 1px dashed gainsboro;
+    border-top: 1px dotted gainsboro;
+    margin: 1em 0 1em 0;
+}
+
+#login .tip {
+    font-size: 1rem;
+    color: rgb(62, 71, 80);
+    margin-top: 1em;
 }
