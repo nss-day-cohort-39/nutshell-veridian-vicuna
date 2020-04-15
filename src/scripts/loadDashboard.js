@@ -8,11 +8,13 @@
 
 import { userArea } from "./users/userArea.js"
 import { EventList } from "./events/EventList.js"
+import { ChatList } from "./chat/ChatList.js"
 
 //add all functions to load theh components here
 export const loadDashboard = (currentUserId) => {
     userArea(currentUserId)
-    EventList() //will need to edit EventList to take a parameter of currentUserId
+    EventList()
+    ChatList() //will need to edit EventList to take a parameter of currentUserId
 }
 
 //clears the dashboard to prevent conflicts

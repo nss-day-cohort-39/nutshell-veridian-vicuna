@@ -20,7 +20,7 @@ const render = (messages) => {
             return ChatHTML(message, user);
           })
           .join("")}
-        <div class="chatPreview__form"></div>
+        <div class="chatPreview__form">${ChatForm()}</div>
     </article>
     `;
 };
@@ -29,5 +29,4 @@ const render = (messages) => {
 export const ChatList = () => {
   const messages = useChats();
   render(messages)
-  ChatForm();
 };
