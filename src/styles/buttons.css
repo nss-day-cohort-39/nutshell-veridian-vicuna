@@ -1,4 +1,4 @@
-button.plusBtn {
+button#plusBtn {
   background: var(--teal100);
   border: none;
   margin: 0;
@@ -11,7 +11,7 @@ button.plusBtn {
   padding: 0.2em;
 }
 
-button.plusBtn:hover {
+button#plusBtn:hover {
   background: var(--teal700);
   color: white;
   padding: 0.2em;
