@@ -1,11 +1,13 @@
 /*
-    Register Form
-    Creates an HTML registeration form for the user along with a click event to save the new user data and a back button
+    Register User
+    Listens for the register user button click event, checks to see if registration data is valid,
+    if so register the user and log them in
 
     Authors: Heidi Sprouse
 */
 
 import { useUsers, registerUser } from "../users/userProvider.js"
+import { loadDashboard } from "../loadDashboard.js"
 
 const eventHub = document.querySelector(".container")
 
@@ -95,20 +97,36 @@ eventHub.addEventListener("registerButtonClicked", event => {
             password: password
         }
 
-        //save the new user data
+        //save the new user data and then log the user in
+        //logging the user in has to be done after the registerUser promise is complete so that we can get the new user's ID
         registerUser(newUser)
+            .then(() => {
+                const refreshedUsers = useUsers()
 
-        //alert the user that they registered
-        alert(`Sucessfully registered as ${username}! Please login.`)
+                //find the user's user ID
+                const foundUser = refreshedUsers.find(user => user.username === username)
+                const newUserId = foundUser.id
 
-        const userWasRegisteredEvent = new CustomEvent("userWasRegistered")
-        eventHub.dispatchEvent(userWasRegisteredEvent)
+                //log the user in after registration
+                //set the local session to the user's ID
+                sessionStorage.setItem("activeUser", newUserId)
+
+                //load the dashboard for the user
+                loadDashboard(newUserId)
+
+                //alert the user that they registered
+                alert(`Sucessfully registered as ${username}!`)
+
+                const userWasRegisteredEvent = new CustomEvent("userWasRegistered")
+                eventHub.dispatchEvent(userWasRegisteredEvent)
+            })
 
         //clear out data in the form
         document.querySelector("#register__username").value = ''
         document.querySelector("#register__email").value = ''
         document.querySelector("#register__password").value = ''
         document.querySelector("#register__passwordConfirm").value = ''
+
     }
 
 })

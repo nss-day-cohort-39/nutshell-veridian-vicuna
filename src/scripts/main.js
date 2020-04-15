@@ -10,6 +10,7 @@ import { getEvents } from "./events/eventProvider.js";
 //get the current user from session storage
 const currentUserId = sessionStorage.getItem("activeUser")
 
+//set the initial page state
 pageStateChanged()
 
 //array of all "get" fetch calls

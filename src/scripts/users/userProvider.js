@@ -1,6 +1,6 @@
 /*
     User Data Provider
-    -These functions pull data from the users resource in database.json
+    These functions pull data from the users resource in database.json
 
     Authors: Heidi Sprouse
 */
