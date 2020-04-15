@@ -7,6 +7,7 @@ import './userAuth/loginUser.js'
 import { ShowRegisterForm } from './userAuth/RegisterForm.js'
 import './userAuth/registerUser.js'
 import { getUsers } from './users/userProvider.js'
+import { getChats } from './chat/chatProvider.js'
 
 //get the current user from session storage
 const currentUserId = sessionStorage.getItem('activeUser')
@@ -16,16 +17,17 @@ pageStateChanged()
 
 //array of all "get" fetch calls
 const promises = [
-  getUsers(), //
-  getEvents(),
-  getNews(),
+    getUsers(), //
+    getEvents(),
+    getNews(),
+    getChats()
 ]
 
 Promise.all(promises).then(() => {
-  ShowLoginForm()
-  ShowRegisterForm()
-  //if the user is already logged in, go ahead and load the dashboard components
-  if (currentUserId !== null) {
-    loadDashboard(currentUserId)
-  }
+    ShowLoginForm()
+    ShowRegisterForm()
+        //if the user is already logged in, go ahead and load the dashboard components
+    if (currentUserId !== null) {
+        loadDashboard(currentUserId)
+    }
 })
