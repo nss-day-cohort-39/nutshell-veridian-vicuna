@@ -9,6 +9,11 @@ import { useUsers, registerUser } from "../users/userProvider.js"
 
 const eventHub = document.querySelector(".container")
 
+//function to test if an e-mail is in a valid format
+const validEmail = (email) => {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
+}
+
 eventHub.addEventListener("registerButtonClicked", event => {
     const users = useUsers()
 
@@ -42,14 +47,30 @@ eventHub.addEventListener("registerButtonClicked", event => {
         errorTrigger = true
     }
 
+    //check to make sure email is in a valid format
+    if (!validEmail(email)) {
+        alert('Please input a valid e-mail address.')
+        errorTrigger = true
+
+        //clear out the e-mail address
+        document.querySelector("#register__email").value = ''
+    }
+
+
     //check to make sure that e-mail address isn't already in use
     const matchedEmail = users.some(user => user.email === email)
     if (matchedEmail === true) {
         alert('This e-mail address is already in use!')
         errorTrigger = true
 
-        //clear out the username since they need to pick another one
+        //clear out the e-mail address
         document.querySelector("#register__email").value = ''
+    }
+
+    //check to make sure password isn't blank
+    if (password === '') {
+        alert('Please input a password!')
+        errorTrigger = true
     }
 
     //check to make sure that passwords match
