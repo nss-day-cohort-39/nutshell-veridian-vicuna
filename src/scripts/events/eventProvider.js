@@ -1,4 +1,4 @@
-// Author: Jayson Rice - This component fetches the event data from the database.json
+// Author: Jayson Rice - This component handles event data from the database.json
 
 let events = []
 

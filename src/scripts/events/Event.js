@@ -1,3 +1,5 @@
+// Author: Jayson Rice - This component converts object representations of objects to HTML representations
+
 //HTML representation of a single event 
 export const Event = eventObject => {
     return `
@@ -12,5 +14,3 @@ export const Event = eventObject => {
         </article>
             `
         }
-
-        // <h5>Delete Event</h5>

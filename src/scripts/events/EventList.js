@@ -1,5 +1,6 @@
-// Author: Jayson Rice - This component displays the list of events and also holds the button to open the event form
-
+/* Author: Jayson Rice - This component displays the list of events and also 
+holds the button to open the event form. It also handles event listeners for the events
+*/
 import { Event } from "./Event.js";
 import { useEvents, deleteEvent } from "./eventProvider.js";
 import { EventForm } from "./EventForm.js";

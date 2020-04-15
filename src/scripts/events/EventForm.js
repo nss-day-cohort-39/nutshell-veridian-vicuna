@@ -45,16 +45,16 @@ const render = () => {
     contentTarget.innerHTML += `
     <div class="eventFormContainer  hide">
         <fieldset class="addEventForm box">
-            <label class="event--label event--name" for="eventName">Event Name:</label>
-            <textarea id="eventName"></textarea>
+            <label class="event--form--item event--name" for="eventName">Event Name:</label>
+            <textarea class="event--form--item" id="eventName"></textarea>
         
-            <label class="event--label event--date" for="eventDate">Event Date:</label>
-            <input class="label event--date" type="date" name="eventDate" id="eventDate">
+            <label class="event--form--item event--date" for="eventDate">Event Date:</label>
+            <input class="event--form--item event--date" type="date" name="eventDate" id="eventDate">
        
-            <label class="event--label event--location" for="eventLocation">Event Location:</label>
-            <textarea id="eventLocation"></textarea>
+            <label class="event--form--item event--location" for="eventLocation">Event Location:</label>
+            <textarea class="event--form--item" id="eventLocation"></textarea>
 
-            <button id="saveEvent">Save Event</button>
+            <button class="event--form--item" id="saveEvent">Save Event</button>
         </fieldset>
     </div>
 `
