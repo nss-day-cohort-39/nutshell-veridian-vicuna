@@ -9,8 +9,10 @@ const eventHub = document.querySelector(".container")
 
 // Adds a static title and a button to the top of the event list
 contentTarget.innerHTML = `
+<div class="headflexRow">
 <h2 class="eventsTitle">Upcoming Events</h2>
-<button id='showEventForm'>Toggle Event Form</button>
+<button id='showEventForm' class="plusBtn">+</button>
+</div>
 `
 
 const render = (eventsToRender) => {

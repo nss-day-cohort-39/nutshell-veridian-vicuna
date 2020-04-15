@@ -43,8 +43,8 @@ contentTarget.addEventListener("click", clickEvent => {
 const render = () => {
     
     contentTarget.innerHTML += `
-    <div class="eventFormContainer hide">
-        <fieldset class="addEventForm">
+    <div class="eventFormContainer  hide">
+        <fieldset class="addEventForm box">
             <label class="event--label event--name" for="eventName">Event Name:</label>
             <textarea id="eventName"></textarea>
         

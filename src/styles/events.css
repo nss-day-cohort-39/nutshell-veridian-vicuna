@@ -1,14 +1,16 @@
+/* Container for events */
 .events {
    text-align: center;
 }
 
+/* List of events */
 .eventList {
     overflow-y: scroll;
-    min-height: 200px;
-    max-height: 400px;
-    /* max-width: 300px; */
+    min-height: 12rem;
+    max-height: 14rem;
 }
 
+/* Event cards */
 .singleEvent {
     border: 1px solid #e0e0e0;
     border-radius: 0.2rem;
