@@ -7,9 +7,7 @@
 export const Task = (taskObject) => {
     return `
         <section>
-            <header>
-                <h4>${taskObject.task}</h4>
-            </header>
+            <h3>${taskObject.task}</h3>
             <p>Expected Completion: ${taskObject.expectDone}</p>
             <p>Completed: ${taskObject.complete}</p>
             <p>

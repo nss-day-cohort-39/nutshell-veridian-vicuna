@@ -5,44 +5,33 @@
 */
 
 // Imports
-import { deleteTask, getTasks, useTasks } from "./TaskProvider.js"
-import { Task } from "./Task.js"
-import { useUsers } from "../users/userProvider.js"
-
+import { deleteTask, useTasks } from "./TaskProvider.js";
+import { Task } from "./Task.js";
 
 // Assign Variable names to DOM targets
-const contentTarget = document.querySelector(".tasks")
-const eventHub = document.querySelector(".container")
-
+const contentTarget = document.querySelector(".tasks");
+const eventHub = document.querySelector(".container");
 
 /* 
-    Listen for the delete button to be clicked and delete 
-    relay that to our deleteTask fetch in our provider
+    Listen for the delete button to be clicked and send 
+    that info to our deleteTask fetch in our provider
 */
-contentTarget.addEventListener("click", clickEvent => {
-    if (clickEvent.target.id.startsWith("deleteTask--")) {
-        const [prefix, taskId] = clickEvent.target.id.split("--")
-        deleteTask(taskId)
-    }
-})
+contentTarget.addEventListener("click", (clickEvent) => {
+  if (clickEvent.target.id.startsWith("deleteTask--")) {
+    const [prefix, taskId] = clickEvent.target.id.split("--");
+    deleteTask(taskId);
+  }
+});
 
+// Get all the data and info necessary and collect only the tasks related to the current user
+const renderTasks = (currentUserId) => {
+      const allTheTasks = useTasks();
 
-// Get all the data and info necessary and render the task list to the DOM
-const renderTasks = () => {
-    getTasks().then(() => {
-        const allTheTasks = useTasks()
-        const allTheUsers = useUsers()
-        // Convert the tasks from an aray of objects to an array of strings
-        const filteredUserTasks = allTheTasks.filter(
-          (userTask) => {
-              return 
-          }
-        )
-
-        contentTarget.innerhtml += filteredUserTasks.map(task => Task(task))
-    }).join("")
+      // Convert the tasks from an aray of objects to an array of strings
+      const filteredUserTasks = allTheTasks.filter(userTask => userTask.userId === parseInt(currentUserId));
+      return filteredUserTasks.map(task => Task(task)).join("")
 }
 
 export const TaskList = (currentUserId) => {
-    renderTasks()
-}
+  contentTarget.innerHTML = renderTasks(currentUserId);
+};
