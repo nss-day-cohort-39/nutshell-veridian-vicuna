@@ -17,19 +17,18 @@ pageStateChanged()
 
 //array of all "get" fetch calls
 const promises = [
-  getUsers(), //
-  getEvents(),
-  getNews(),
-  getChats(),
-  getTasks()
+    getUsers(), //
+    getEvents(),
+    getNews(),
+    getChats(),
+    getTasks()
 ]
 
-Promise.all(promises)
-    .then(() => {
-        ShowLoginForm()
-        ShowRegisterForm()
-            //if the user is already logged in, go ahead and load the dashboard components
-        if (currentUserId !== null) {
-            loadDashboard(currentUserId)
-        }
+Promise.all(promises).then(() => {
+    ShowLoginForm()
+    ShowRegisterForm()
+        //if the user is already logged in, go ahead and load the dashboard components
+    if (currentUserId !== null) {
+        loadDashboard(currentUserId)
+    }
 })
