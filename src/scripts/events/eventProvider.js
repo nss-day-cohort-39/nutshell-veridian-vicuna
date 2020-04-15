@@ -25,6 +25,15 @@ export const getEvents = () => {
         })
 }
 
+export const deleteEvent = eventId => {
+    return fetch(`http://localhost:8088/events/${eventId}`, {
+        method: "DELETE"
+    })
+        .then(getEvents)
+        .then(dispatchStateChangeEvent)
+}
+
+
 // Responsible for the user saving new events
 export const saveEvent = event => {
     return fetch('http://localhost:8088/events', {

@@ -1,7 +1,7 @@
 // Author: Jayson Rice - This component displays the list of events and also holds the button to open the event form
 
 import { Event } from "./Event.js";
-import { useEvents } from "./eventProvider.js";
+import { useEvents, deleteEvent } from "./eventProvider.js";
 import { EventForm } from "./EventForm.js";
 
 const contentTarget = document.querySelector(".events")
@@ -30,8 +30,13 @@ export const EventList = (currentUserId) => {
 
 // If the event data is changed, re-render the new data and the surrounding divs
 eventHub.addEventListener("eventStateChanged", CustomEvent => {
-    contentTarget.innerHTML = `<h2 class="eventsTitle">Upcoming Events</h2>
-    <button id='showEventForm'>Add an Event</button>`
+    contentTarget.innerHTML = `
+    <div class="headflexRow">
+    <h2 class="eventsTitle">Upcoming Events</h2>
+    <button class="plusBtn" id='showEventForm'>+</button>
+    </div>
+    `
+    
     let events = useEvents()
     contentTarget.innerHTML += `<div class="eventList"> ${render(events)}</div>`
     EventForm()
@@ -42,5 +47,13 @@ contentTarget.addEventListener("click", clickEvent => {
     if (clickEvent.target.id === "showEventForm") {
         const customEvent = new CustomEvent("eventFormButtonClicked")
         eventHub.dispatchEvent(customEvent)
+    }
+})
+
+// Listens for the delete event button click
+contentTarget.addEventListener("click", clickEvent => {
+    if (clickEvent.target.id.startsWith("deleteEvent--")) {
+        const [_, eventId] = clickEvent.target.id.split("--")
+        deleteEvent(eventId)
     }
 })
