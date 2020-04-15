@@ -39,8 +39,8 @@ eventHub.addEventListener("eventStateChanged", CustomEvent => {
     `
     
     let events = useEvents()
-    contentTarget.innerHTML += `<div class="eventList"> ${render(events)}</div>`
     EventForm()
+    contentTarget.innerHTML += `<div class="eventList"> ${render(events)}</div>`
 })
 
 // Tells other components when the event form button is clicked
