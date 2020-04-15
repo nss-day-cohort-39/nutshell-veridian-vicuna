@@ -33,11 +33,13 @@ const renderTasks = () => {
         const allTheTasks = useTasks()
         const allTheUsers = useUsers()
         // Convert the tasks from an aray of objects to an array of strings
-        const currentUserTasks = allTheTasks.filter(
-            
+        const filteredUserTasks = allTheTasks.filter(
+          (userTask) => {
+              return 
+          }
         )
 
-        contentTarget.innerhtml += currentUserTasks.map(task => Task(task))
+        contentTarget.innerhtml += filteredUserTasks.map(task => Task(task))
     }).join("")
 }
 

@@ -6,8 +6,9 @@ import { getEvents } from "./events/eventProvider.js";
 import { getTasks } from "./tasks/TaskProvider.js";
 import { loadDashboard } from './loadDashboard.js'
 import { getNews } from './news/newsProvider.js'
-import "./userAuth/loginUser.js"
-import "./userAuth/registerUser.js"
+import { ShowLoginForm } from './userAuth/LoginForm.js'
+import { getChats } from './chat/chatProvider.js'
+import './userAuth/loginUser.js'
 
 //get the current user from session storage
 const currentUserId = sessionStorage.getItem('activeUser')
@@ -17,10 +18,11 @@ pageStateChanged()
 
 //array of all "get" fetch calls
 const promises = [
-    getUsers(),
-    getEvents(),
-    getTasks(),
-    getNews()
+  getUsers(), //
+  getEvents(),
+  getNews(),
+  getChats(),
+  getTasks()
 ]
 
 Promise.all(promises)

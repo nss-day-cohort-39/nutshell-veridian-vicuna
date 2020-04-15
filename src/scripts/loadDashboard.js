@@ -5,16 +5,18 @@
 
     Authors: Heidi Sprouse
 */
-
+import { ChatList } from './chat/ChatList.js'
 import { userArea } from "./users/userArea.js"
 import { EventList } from "./events/EventList.js"
 import { TaskList } from "./tasks/TaskList.js"
 import { NewsList } from './news/NewsList.js'
+
 //add all functions to load theh components here
 export const loadDashboard = (currentUserId) => {
-    userArea(currentUserId)
+    userArea(currentUserId),
     EventList(), 
     TaskList(currentUserId),
+    ChatList(),
     NewsList(currentUserId)
 }
 
