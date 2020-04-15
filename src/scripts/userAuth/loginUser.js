@@ -1,6 +1,6 @@
 /*
     Login User Functions
-    -These functions check to see if a user's info is valid, and if so logs them in when the login button is clicked
+    These functions check to see if a user's info is valid, and if so logs them in when the login button is clicked
 
     Authors: Heidi Sprouse
 */

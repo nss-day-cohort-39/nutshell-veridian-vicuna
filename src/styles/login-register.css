@@ -1,0 +1,11 @@
+#login,
+#register {
+    display: flex;
+    justify-content: center;
+}
+
+.userAuth {
+    width: 300px;
+    height: fit-content;
+    align-self: center;
+}

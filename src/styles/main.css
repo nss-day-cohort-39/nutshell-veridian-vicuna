@@ -2,6 +2,7 @@
 @import './typography.css';
 @import './flex-grid.css';
 @import './events.css';
+@import './login-register.css';
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600&display=swap');
 html,
 body {
