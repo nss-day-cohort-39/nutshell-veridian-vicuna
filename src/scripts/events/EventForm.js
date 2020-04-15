@@ -27,12 +27,14 @@ contentTarget.addEventListener("click", clickEvent => {
         const eventName = document.querySelector("#eventName").value
         const eventDate = document.querySelector("#eventDate").value
         const eventLocation = document.querySelector("#eventLocation").value
+        const userId = document.querySelector("#eventUserId").value
 
         // Make a new object representation of an event
         const newEvent = {
             name: eventName,
             date: eventDate,
-            location: eventLocation
+            location: eventLocation,
+            userId: userId
         }
 
         // Change API state and application state
@@ -40,11 +42,12 @@ contentTarget.addEventListener("click", clickEvent => {
     }
 })
 
-const render = () => {
+const render = (currentUserId) => {
     
     contentTarget.innerHTML += `
     <div class="eventFormContainer  hide">
         <fieldset class="addEventForm box">
+        <input type="hidden" id="eventUserId" value="${currentUserId}">
             <label class="event--form--item event--name" for="eventName">Event Name:</label>
             <textarea class="event--form--item" id="eventName"></textarea>
         
@@ -60,6 +63,6 @@ const render = () => {
 `
 }
 
-export const EventForm = () => {
-    render()
+export const EventForm = (currentUserId) => {
+    render(currentUserId)
 }

@@ -4,6 +4,7 @@ holds the button to open the event form. It also handles event listeners for the
 import { Event } from "./Event.js";
 import { useEvents, deleteEvent } from "./eventProvider.js";
 import { EventForm } from "./EventForm.js";
+import { useUsers } from "../users/userProvider.js";
 
 const contentTarget = document.querySelector(".events")
 const eventHub = document.querySelector(".container")
@@ -19,14 +20,19 @@ contentTarget.innerHTML = `
 const render = (eventsToRender) => {
   return eventsToRender
     .map((eventObject) => {
-      return Event(eventObject)
+
+        const userArray= useUsers()
+        const chosenUser = userArray.find(
+            user => user.id === eventObject.userId)
+
+      return Event(eventObject, chosenUser)
     })
     .join('')
 }
 
 export const EventList = (currentUserId) => {
     const events = useEvents()
-    contentTarget.innerHTML += `<div class="eventList"> ${render(events)}</div>`
+    contentTarget.innerHTML += `<div class="eventList"> ${render(events, currentUserId)}</div>`
 }
 
 // If the event data is changed, re-render the new data and the surrounding divs
@@ -39,7 +45,7 @@ eventHub.addEventListener("eventStateChanged", CustomEvent => {
     `
     
     let events = useEvents()
-    EventForm()
+    EventForm(currentUserId)
     contentTarget.innerHTML += `<div class="eventList"> ${render(events)}</div>`
 })
 

@@ -1,7 +1,7 @@
 // Author: Jayson Rice - This component converts object representations of objects to HTML representations
 
 //HTML representation of a single event 
-export const Event = eventObject => {
+export const Event = (eventObject, chosenUser) => {
     return `
         <article class="singleEvent">
         <div class="headflexRow">
@@ -11,6 +11,7 @@ export const Event = eventObject => {
         </div>
             <section>Date: ${eventObject.date}</section>
             <section>Location: ${eventObject.location}</section>
+            <p>Posted By: ${chosenUser.username}</p>
         </article>
             `
         }
