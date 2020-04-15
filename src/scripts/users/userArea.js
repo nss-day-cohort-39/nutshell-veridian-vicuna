@@ -28,7 +28,7 @@ export const userArea = (currentUserId) => {
     <div id="friendsContainer">
     <div id="friendList">
     <h2>My Friends</h2>
-    ${ShowFriendList(currentUserInfo)}
+    ${ShowFriendList(currentUserId)}
     </div>
     </div>`
 }

@@ -16,16 +16,16 @@ pageStateChanged()
 
 //array of all "get" fetch calls
 const promises = [
-  getUsers(), //
-  getEvents(),
-  getNews(),
+    getUsers(),
+    getEvents(),
+    getNews()
 ]
 
 Promise.all(promises).then(() => {
-  ShowLoginForm()
-  ShowRegisterForm()
-  //if the user is already logged in, go ahead and load the dashboard components
-  if (currentUserId !== null) {
-    loadDashboard(currentUserId)
-  }
+    ShowLoginForm()
+    ShowRegisterForm()
+        //if the user is already logged in, go ahead and load the dashboard components
+    if (currentUserId !== null) {
+        loadDashboard(currentUserId)
+    }
 })

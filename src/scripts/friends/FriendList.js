@@ -5,19 +5,14 @@
     Authors: Heidi Sprouse
 */
 
-import { useUsers } from "../users/userProvider.js";
 import { Friend } from "./Friend.js";
+import { getFriendObjects } from "./getCurrentFriends.js";
 
-export const ShowFriendList = (currentUserObject) => {
-    const users = useUsers()
+export const ShowFriendList = (currentUserId) => {
+    const friendObjects = getFriendObjects(currentUserId)
 
-    //list of current user's friends
-    const friends = currentUserObject.friends
-
-    return friends.map(friend => {
-        //get the friend's user info
-        const friendInfo = users.find(user => friend.initiatorId === user.id)
-        return Friend(friendInfo)
+    return friendObjects.map(friendObject => {
+        return Friend(friendObject)
     }).join('')
 
 }
