@@ -23,3 +23,19 @@ export const getFriendObjects = () => {
     return friendObjects
 
 }
+
+export const getFriendIdArray = () => {
+    const currentUserId = document.querySelector("#currentUserId").value
+    const users = useUsers()
+
+    const currentUserInfo = users.find(user => user.id === parseInt(currentUserId))
+
+    const friends = currentUserInfo.friends
+
+    let friendIds = []
+    friends.forEach(friend => {
+        friendIds.push(friend.following)
+    })
+
+    return friendIds
+}

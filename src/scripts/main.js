@@ -17,7 +17,7 @@ pageStateChanged()
 
 //array of all "get" fetch calls
 const promises = [
-    getUsers(), //
+    getUsers(),
     getEvents(),
     getNews(),
     getChats()
@@ -28,8 +28,8 @@ Promise.all(promises).then(() => {
     ShowRegisterForm()
         //if the user is already logged in, go ahead and load the dashboard components and set the hidden input to the current user's ID
     if (currentUserId !== null) {
+        //any time you want to get the current user's ID simply grab the value from #currentUserId like so: const currentUserId = document.querySelector("#currentUserId").value
         document.querySelector("#currentUserId").value = currentUserId
-        console.log(document.querySelector("#currentUserId").value)
-        loadDashboard(currentUserId)
+        loadDashboard()
     }
 })
