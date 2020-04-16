@@ -20,6 +20,11 @@ eventHub.addEventListener("click", event => {
         //remove the active user session
         sessionStorage.removeItem("activeUser")
 
+        //set the currentUserId blank input to the user's ID for use in modules
+        document.querySelector("#currentUserId").value = ''
+
+        //remove the value of the hidden 
+
         //clear the dashboard
         clearDashboard()
 
