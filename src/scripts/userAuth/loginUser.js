@@ -51,9 +51,6 @@ eventHub.addEventListener("loginButtonClicked", event => {
         //set the local session to the user's ID
         sessionStorage.setItem("activeUser", userId)
 
-        //set the currentUserId blank input to the user's ID for use in modules
-        document.querySelector("#currentUserId").value = userId
-
         //load the dashboard for the user
         loadDashboard(userId)
 
