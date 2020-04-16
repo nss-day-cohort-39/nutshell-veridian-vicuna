@@ -30,14 +30,14 @@ eventHub.addEventListener("taskStateChanged", customEvent => {
 
 // Get all the data and info necessary and collect only the tasks related to the current user
 const renderTasks = () => {
-      const currentUserId = document.querySelector("#currentUserId").value
-      const allTheTasks = useTasks();
+    const currentUserId = sessionStorage.getItem('activeUser')
+    const allTheTasks = useTasks();
 
-      // Convert the tasks from an aray of objects to an array of strings
-      const filteredUserTasks = allTheTasks.filter(userTask => userTask.userId === parseInt(currentUserId));
-      return filteredUserTasks.map(task => Task(task)).join("")
+    // Convert the tasks from an aray of objects to an array of strings
+    const filteredUserTasks = allTheTasks.filter(userTask => userTask.userId === parseInt(currentUserId));
+    return filteredUserTasks.map(task => Task(task)).join("")
 }
 
 export const TaskList = () => {
-  contentTarget.innerHTML = renderTasks();
+    contentTarget.innerHTML = renderTasks();
 };

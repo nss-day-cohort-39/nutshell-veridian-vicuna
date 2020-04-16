@@ -7,6 +7,7 @@ import { getTasks } from "./tasks/TaskProvider.js";
 import { loadDashboard } from './loadDashboard.js'
 import { getNews } from './news/newsProvider.js'
 import { getChats } from './chat/chatProvider.js'
+import './friends/addNewFriend.js'
 import './userAuth/loginUser.js'
 
 //get the current user from session storage
@@ -29,8 +30,6 @@ Promise.all(promises).then(() => {
     ShowRegisterForm()
         //if the user is already logged in, go ahead and load the dashboard components and set the hidden input to the current user's ID
     if (currentUserId !== null) {
-        //any time you want to get the current user's ID simply grab the value from #currentUserId like so: const currentUserId = document.querySelector("#currentUserId").value
-        document.querySelector("#currentUserId").value = currentUserId
         loadDashboard()
     }
 })

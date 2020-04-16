@@ -1,8 +1,8 @@
 /*
     This module is responsible for the managment of the task data.
     It will retreive it, save it, and delete it and provide a
-    state change event that when heard will re-render the list of
-    to show the most recent updates to the list
+    state change event that when heard will re-render the task 
+    list to show the most recent updates to it.
 */
 
 

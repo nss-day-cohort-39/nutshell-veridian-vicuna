@@ -20,6 +20,8 @@ eventHub.addEventListener("click", event => {
         //remove the active user session
         sessionStorage.removeItem("activeUser")
 
+        //remove the value of the hidden 
+
         //clear the dashboard
         clearDashboard()
 
