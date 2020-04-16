@@ -1,6 +1,6 @@
 /*
     This module is responsible for providing the Add 
-    Task Button and adding an an event listener to it
+    Task Button and adding an event listener to it
 */
 
 // Give variable names to desired targets
@@ -10,7 +10,7 @@ const eventHub = document.querySelector(".container")
 
 // This is the function that provides an HTML representation of a Add Task button
 export const ShowTaskFormButton = () => {
-    contentTarget.innerHTML = `<button id="addTask">Add Task</button>`
+    return `<button id="addTask">Add Task</button>`
 }
 
 
