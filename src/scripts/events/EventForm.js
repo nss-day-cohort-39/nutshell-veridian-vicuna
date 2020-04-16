@@ -25,14 +25,14 @@ contentTarget.addEventListener("click", clickEvent => {
     if (clickEvent.target.id === "saveEvent") {
 
         const eventName = document.querySelector("#eventName").value
-        const eventDate = document.querySelector("#eventDate").value
+        const [year, month, day] = document.querySelector("#eventDate").value.split("-")
         const eventLocation = document.querySelector("#eventLocation").value
         const currentUserId = sessionStorage.getItem('activeUser')
 
         // Make a new object representation of an event
         const newEvent = {
             name: eventName,
-            date: eventDate,
+            date: `${month}-${day}-${year}`,
             location: eventLocation,
             userId: parseInt(currentUserId)
         }
