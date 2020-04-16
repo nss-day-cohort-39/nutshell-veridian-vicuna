@@ -20,8 +20,22 @@ const dispatchStateChangeEvent = () => {
 export const getEvents = () => {
     return fetch(`http://localhost:8088/events`)
         .then(response => response.json())
-        .then(parsedevents => {
-            events = parsedevents
+        .then(parsedEvents => {
+            events = parsedEvents.sort((Beginning, End) => {
+
+                let [month1, day1, year1] = Beginning.date.split("-")
+                let [month2, day2, year2] = End.date.split("-")
+
+                if (year1 + month1 + day1 < year2 + month2 + day2) {
+                    return -1
+                }
+                if (year1 + month1 + day1 > year2 + month2 + day2) {
+                    return 1
+                }
+                return 0
+               
+            }
+            )
         })
 }
 
