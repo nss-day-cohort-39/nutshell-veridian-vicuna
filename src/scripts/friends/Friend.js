@@ -16,14 +16,14 @@ export const Friend = (friendObject) => {
         <h3>
             ${friendObject.username}
         </h3>
-        <button id="deleteFriend--${friendObject.id}">Remove</button>
+        <button id="deleteFriend--${friendObject.id}">X</button>
     </div>`
 }
 
 eventHub.addEventListener("click", event => {
     if (event.target.id.startsWith("deleteFriend--")) {
         if (window.confirm(`Are you sure you want to remove this friend?`)) {
-            const currentUserId = document.querySelector("#currentUserId").value
+            const currentUserId = sessionStorage.getItem('activeUser')
             const users = useUsers()
 
             const currentUserInfo = users.find(user => user.id === parseInt(currentUserId))

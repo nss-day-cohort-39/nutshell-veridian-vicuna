@@ -15,7 +15,7 @@ eventHub.addEventListener("AddNewFriend", event => {
     //friend name sent by the event
     const friendName = event.detail.friendName
 
-    const currentUserId = document.querySelector("#currentUserId").value
+    const currentUserId = sessionStorage.getItem('activeUser')
     const users = useUsers()
     const currentUserInfo = users.find(user => user.id === parseInt(currentUserId))
     const friends = currentUserInfo.friends

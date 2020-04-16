@@ -13,8 +13,9 @@ import { ShowAddFriendForm } from "../friends/AddNewFriendForm.js"
 const contentTarget = document.querySelector(".user")
 
 export const userArea = () => {
+
     const users = useUsers()
-    const currentUserId = document.querySelector("#currentUserId").value
+    const currentUserId = sessionStorage.getItem('activeUser')
 
     //get current user's info
     const currentUserInfo = users.find(user => user.id === parseInt(currentUserId))

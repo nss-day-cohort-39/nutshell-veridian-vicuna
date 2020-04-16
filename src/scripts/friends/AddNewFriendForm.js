@@ -10,7 +10,7 @@ import { useUsers } from "../users/userProvider.js"
 const eventHub = document.querySelector(".container")
 
 export const ShowAddFriendForm = () => {
-        const currentUserId = document.querySelector("#currentUserId").value
+        const currentUserId = sessionStorage.getItem('activeUser')
         let users = useUsers()
 
         const currentUserInfo = users.find(user => user.id === parseInt(currentUserId))

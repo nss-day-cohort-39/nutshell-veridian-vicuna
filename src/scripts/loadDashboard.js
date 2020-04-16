@@ -16,10 +16,10 @@ const eventHub = document.querySelector(".container")
 //add all functions to load theh components here
 export const loadDashboard = () => {
     userArea(),
-    EventList(), 
-    TaskList(),
-    ChatList(),
-    NewsList()
+        EventList(),
+        TaskList(),
+        ChatList(),
+        NewsList()
 }
 
 //clears the dashboard to prevent conflicts
