@@ -5,6 +5,7 @@ import { Event } from "./Event.js";
 import { useEvents, deleteEvent } from "./eventProvider.js";
 import { EventForm } from "./EventForm.js";
 import { useUsers } from "../users/userProvider.js";
+import { getFriendIdArray } from "../friends/getCurrentFriends.js";
 
 const contentTarget = document.querySelector(".events")
 const eventHub = document.querySelector(".container")
@@ -34,14 +35,18 @@ export const EventList = () => {
     let userAndFriendEventArray = []
 
     const allTheEvents = useEvents()
-
+    const allFriendIds = getFriendIdArray() 
 
     const currentUserId = sessionStorage.getItem('activeUser')
     const filteredUserEvents = allTheEvents.filter(userEvent => userEvent.userId === parseInt(currentUserId));
 
+    allFriendIds.forEach(singleId => {
+    const filteredFriendEvents =  allTheEvents.filter(userEvent => userEvent.userId === parseInt(singleId));
+    userAndFriendEventArray = userAndFriendEventArray.concat(filteredFriendEvents)
+    });
+
     // Puts a sorted array of the event data from the user and their friends
-    userAndFriendEventArray = userAndFriendEventArray.concat
-        (filteredUserEvents).sort
+    userAndFriendEventArray = userAndFriendEventArray.concat(filteredUserEvents).sort
         ((Beginning, End) => {
 
             let [month1, day1, year1] = Beginning.date.split("-")
