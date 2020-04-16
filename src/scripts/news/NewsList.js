@@ -1,5 +1,4 @@
 import { News } from './News.js'
-import { NewsForm } from './NewsForm.js'
 import { useNews } from './newsProvider.js'
 
 const eventHub = document.querySelector('.container')
@@ -24,19 +23,9 @@ const render = (newsToRender) => {
     })
     .join('')
 }
-export const NewsList = (currentUserId) => {
+export const NewsList = () => {
   const news = useNews()
   contentTarget.innerHTML += `
-    <div id="newsForm"></div>
     <div class="newsList">${render(news)}</div>
   `
 }
-
-contentTarget.addEventListener('click', (clickEvent) => {
-  if (clickEvent.target.id === 'plusBtn') {
-    const customEvent = new CustomEvent('newsFormButtonClicked')
-    eventHub.dispatchEvent(customEvent)
-    // console.log('.plusBtn clicked!!')
-    NewsForm()
-  }
-})

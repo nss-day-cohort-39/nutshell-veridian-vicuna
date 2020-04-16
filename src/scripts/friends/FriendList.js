@@ -8,7 +8,9 @@
 import { Friend } from "./Friend.js";
 import { getFriendObjects } from "./getCurrentFriends.js";
 
-export const ShowFriendList = (currentUserId) => {
+const currentUserId = document.querySelector("#currentUserId").value
+
+export const ShowFriendList = () => {
     const friendObjects = getFriendObjects(currentUserId)
 
     return friendObjects.map(friendObject => {
