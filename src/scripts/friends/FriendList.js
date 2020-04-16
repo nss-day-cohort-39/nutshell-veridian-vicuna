@@ -8,7 +8,7 @@
 import { Friend } from "./Friend.js";
 import { getFriendObjects } from "./getCurrentFriends.js";
 
-const currentUserId = document.querySelector("#currentUserId").value
+const currentUserId = sessionStorage.getItem('activeUser')
 
 export const ShowFriendList = () => {
     const friendObjects = getFriendObjects(currentUserId)

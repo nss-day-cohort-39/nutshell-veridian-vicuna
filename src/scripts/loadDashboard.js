@@ -11,6 +11,8 @@ import { NewsList } from './news/NewsList.js'
 import { TaskList } from './tasks/TaskList.js'
 import { userArea } from './users/userArea.js'
 
+const eventHub = document.querySelector('.container')
+
 //add all functions to load theh components here
 export const loadDashboard = () => {
   userArea(), EventList(), TaskList(), ChatList(), NewsList()
@@ -30,3 +32,9 @@ export const clearDashboard = () => {
     (component) => (document.querySelector(component).innerHTML = '')
   )
 }
+
+//when a friend is added or deleted, reload all the components
+eventHub.addEventListener('friendStateChanged', (event) => {
+  clearDashboard()
+  loadDashboard()
+})

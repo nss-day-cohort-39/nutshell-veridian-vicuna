@@ -8,7 +8,7 @@
 import { useUsers } from "../users/userProvider.js"
 
 export const getFriendObjects = () => {
-    const currentUserId = document.querySelector("#currentUserId").value
+    const currentUserId = sessionStorage.getItem('activeUser')
     const users = useUsers()
 
     const currentUserInfo = users.find(user => user.id === parseInt(currentUserId))
@@ -25,7 +25,7 @@ export const getFriendObjects = () => {
 }
 
 export const getFriendIdArray = () => {
-    const currentUserId = document.querySelector("#currentUserId").value
+    const currentUserId = sessionStorage.getItem('activeUser')
     const users = useUsers()
 
     const currentUserInfo = users.find(user => user.id === parseInt(currentUserId))
