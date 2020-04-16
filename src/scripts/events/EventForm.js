@@ -27,7 +27,7 @@ contentTarget.addEventListener("click", clickEvent => {
         const eventName = document.querySelector("#eventName").value
         const eventDate = document.querySelector("#eventDate").value
         const eventLocation = document.querySelector("#eventLocation").value
-        const currentUserId = document.querySelector("#currentUserId").value
+        const currentUserId = sessionStorage.getItem('activeUser')
 
         // Make a new object representation of an event
         const newEvent = {
