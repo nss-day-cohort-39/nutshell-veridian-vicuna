@@ -11,6 +11,7 @@
 
 .chatPreview {
   margin-top: auto;
+  overflow-y: scroll;
 }
 
 .chatPreview__message {

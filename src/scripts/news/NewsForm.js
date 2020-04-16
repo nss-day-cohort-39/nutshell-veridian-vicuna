@@ -17,17 +17,18 @@ eventHub.addEventListener('newsFormButtonClicked', (customEvent) => {
 
 // Handle browser-generated click event in component
 eventHub.addEventListener('click', (clickEvent) => {
-  if (clickEvent.lid === 'saveNews') {
-    const newsTitle = document.querySelector('#newsTitle').value
-    const newsSynopsis = document.querySelector('#newsSynopsis').value
-    const newsUrl = document.querySelector('#newsUrl').value
+  if (clickEvent.target.id === 'saveNews') {
+    const title = document.querySelector('#title').value
+    const synopsis = document.querySelector('#synopsis').value
+    const url = document.querySelector('#url').value
+    const timestamp = document.querySelector('#timestamp').value
 
     // Make a new object representation of a news
     const newNews = {
-      newsTitle: newsTitle,
-      newsSynopsis: newsSynopsis,
-      newsUrl: newsUrl,
-      timestamp: timestamp,
+      title: title,
+      synopsis: synopsis,
+      url: url,
+      timestamp: Date.now(),
     }
 
     // Change API state and application state
@@ -55,16 +56,16 @@ const render = () => {
 
         <div id="xOut" class="xOut">X</div>
 
-        <label for="newsTitle">Title</label>
-        <input type="text" id="newsTitle">
+        <label for="title">Title</label>
+        <input type="text" id="title">
 
-        <label for="newsSynopsis">Synopsis</label>
-        <textarea type="text" id="newsSynopsis" rows=3></textarea>
+        <label for="synopsis">Synopsis</label>
+        <textarea type="text" id="synopsis" rows=3></textarea>
 
-        <label for="newsUrl">Url</label>
-        <input type="text" id="newsUrl">
+        <label for="url">Url</label>
+        <input type="text" id="url">
 
-        <input type="hidden" id="timestamp" value="123">
+        <input type="hidden" id="timestamp" value="">
 
         <button id="saveNews" class="btnSmall marT2">Add News</button>
       </form>
