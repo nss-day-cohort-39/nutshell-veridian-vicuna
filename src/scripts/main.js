@@ -6,8 +6,11 @@ import { ShowLoginForm } from './userAuth/LoginForm.js'
 import './userAuth/loginUser.js'
 import { ShowRegisterForm } from './userAuth/RegisterForm.js'
 import './userAuth/registerUser.js'
+import './chat/ChatList.js'
 import { getUsers } from './users/userProvider.js'
 import { getChats } from './chat/chatProvider.js'
+
+
 
 //get the current user from session storage
 const currentUserId = sessionStorage.getItem('activeUser')

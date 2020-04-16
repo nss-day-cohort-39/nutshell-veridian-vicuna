@@ -16,7 +16,7 @@ export const loadDashboard = (currentUserId) => {
   userArea(currentUserId)
   EventList() //will need to edit EventList to take a parameter of currentUserId
   NewsList(currentUserId)
-  ChatList()
+  ChatList(currentUserId)
 }
 
 //clears the dashboard to prevent conflicts
