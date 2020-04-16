@@ -3,21 +3,21 @@ import { saveNews } from './newsProvider.js'
 const eventHub = document.querySelector('.container')
 const contentTarget = document.querySelector('.newsForm')
 
-// let visibility = false
+let visibility = false
 
-// eventHub.addEventListener('newsFormButtonClicked', (customEvent) => {
-//   visibility = !visibility
+eventHub.addEventListener('newsFormButtonClicked', (customEvent) => {
+  visibility = !visibility
 
-//   if (visibility) {
-//     contentTarget.classList.add('hide')
-//   } else {
-//     contentTarget.classList.remove('hide')
-//   }
-// })
+  if (visibility) {
+    contentTarget.classList.add('hide')
+  } else {
+    contentTarget.classList.remove('hide')
+  }
+})
 
 // Handle browser-generated click event in component
 eventHub.addEventListener('click', (clickEvent) => {
-  if (clickEvent.target.id === 'saveNews') {
+  if (clickEvent.lid === 'saveNews') {
     const newsTitle = document.querySelector('#newsTitle').value
     const newsSynopsis = document.querySelector('#newsSynopsis').value
     const newsUrl = document.querySelector('#newsUrl').value
@@ -27,6 +27,7 @@ eventHub.addEventListener('click', (clickEvent) => {
       newsTitle: newsTitle,
       newsSynopsis: newsSynopsis,
       newsUrl: newsUrl,
+      timestamp: timestamp,
     }
 
     // Change API state and application state
@@ -40,19 +41,19 @@ const render = () => {
   // contentTarget.classList.add('hide')
   // const allNews = useNews()
 
-  const deleteItinBtn = document.querySelector('#deleteItinBtn')
+  // const xOut = document.querySelector('#xOut')
 
-  contentTarget.addEventListener('click', (clickEvent) => {
-    if (deleteItinBtn.target.id === 'deleteItinBtn') {
-      document.getElementById('deleteItinBtn').className = 'hide'
-    }
-  })
+  // contentTarget.addEventListener('click', (clickEvent) => {
+  //   if (xOut === xOut) {
+  //     contentTarget.className = 'hide'
+  //   }
+  // })
 
   return `
     <div class="formWrap">
       <form class="dh-Form panel fadeBackground marB1">
 
-        <div id="deleteItinBtn" class="xOut">X</div>
+        <div id="xOut" class="xOut">X</div>
 
         <label for="newsTitle">Title</label>
         <input type="text" id="newsTitle">
@@ -63,7 +64,7 @@ const render = () => {
         <label for="newsUrl">Url</label>
         <input type="text" id="newsUrl">
 
-        <input type="hidden" id="timestamp" value="">
+        <input type="hidden" id="timestamp" value="123">
 
         <button id="saveNews" class="btnSmall marT2">Add News</button>
       </form>
