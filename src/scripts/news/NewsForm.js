@@ -3,17 +3,17 @@ import { saveNews } from './newsProvider.js'
 const eventHub = document.querySelector('.container')
 const contentTarget = document.querySelector('.newsForm')
 
-let visibility = false
+// let visibility = false
 
-eventHub.addEventListener('newsFormButtonClicked', (customEvent) => {
-  visibility = !visibility
+// eventHub.addEventListener('newsFormButtonClicked', (customEvent) => {
+//   visibility = !visibility
 
-  if (visibility) {
-    contentTarget.classList.add('hide')
-  } else {
-    contentTarget.classList.remove('hide')
-  }
-})
+//   if (visibility) {
+//     contentTarget.classList.add('hide')
+//   } else {
+//     contentTarget.classList.remove('hide')
+//   }
+// })
 
 // Handle browser-generated click event in component
 eventHub.addEventListener('click', (clickEvent) => {
@@ -44,14 +44,6 @@ const render = () => {
   // contentTarget.classList.add('hide')
   // const allNews = useNews()
 
-  // const xOut = document.querySelector('#xOut')
-
-  // contentTarget.addEventListener('click', (clickEvent) => {
-  //   if (xOut === xOut) {
-  //     contentTarget.className = 'hide'
-  //   }
-  // })
-
   return `
     <div class="formWrap">
       <form class="dh-Form panel fadeBackground marB1">
@@ -74,6 +66,13 @@ const render = () => {
     </div>
   `
 }
+
+eventHub.addEventListener('click', (clickEvent) => {
+  if (clickEvent.target.id === 'xOut') {
+    const contentTarget = document.querySelector('.newsForm')
+    contentTarget.classList.add('hide')
+  }
+})
 
 export const NewsForm = () => {
   const contentTarget = document.querySelector('.newsForm')

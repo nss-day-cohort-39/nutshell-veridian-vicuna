@@ -20,6 +20,8 @@ contentTarget.addEventListener('click', (clickEvent) => {
   if (clickEvent.target.id === 'plusBtn') {
     // console.log('yeah')
     NewsForm()
+    const contentTarget = document.querySelector('.newsForm')
+    contentTarget.classList.remove('hide')
   }
 })
 
