@@ -8,6 +8,7 @@ export const News = (newsObj) => {
 
   return `
     <div class="box">
+      <button id="deleteEvent--${newsObj.id}" class="xOut">X</button>
       <h4><a href="${newsObj.url}" target="_blank">${newsObj.title}</a></h4>
       <p>${newsObj.synopsis}</p>
       <p>Posted by: ${author.username}</p>

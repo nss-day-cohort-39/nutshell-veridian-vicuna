@@ -1,6 +1,6 @@
 import { News } from './News.js'
 import { NewsForm } from './NewsForm.js'
-import { useNews } from './newsProvider.js'
+import { deleteNews, useNews } from './newsProvider.js'
 
 const eventHub = document.querySelector('.container')
 const contentTarget = document.querySelector('.news')
@@ -46,3 +46,11 @@ export const NewsList = () => {
     <div class="newsList">${render(filteredUserNews)}</div>
   `
 }
+
+// Listens for the delete event button click
+contentTarget.addEventListener('click', (clickEvent) => {
+  if (clickEvent.target.id.startsWith('deleteEvent--')) {
+    const [_, newsId] = clickEvent.target.id.split('--')
+    deleteNews(newsId)
+  }
+})
