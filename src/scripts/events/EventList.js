@@ -6,27 +6,21 @@ import { useEvents, deleteEvent } from "./eventProvider.js";
 import { EventForm } from "./EventForm.js";
 import { useUsers } from "../users/userProvider.js";
 
-
-// const allTheEvents = useEvents()
-// const currentUserId = sessionStorage.getItem('activeUser')
-// const filteredUserEvents = allTheEvents.filter(userEvent => userEvent.userId === parseInt(currentUserId));
-
-
 const contentTarget = document.querySelector(".events")
 const eventHub = document.querySelector(".container")
 
 const render = (eventsToRender) => {
 
-  return eventsToRender
-    .map((eventObject) => {
-        
-        const userArray= useUsers()
-        const chosenUser = userArray.find(
-            user => user.id === eventObject.userId)
+    return eventsToRender
+        .map((eventObject) => {
 
-      return Event(eventObject, chosenUser)
-    })
-    .join('')
+            const userArray = useUsers()
+            const chosenUser = userArray.find(
+                user => user.id === eventObject.userId)
+
+            return Event(eventObject, chosenUser)
+        })
+        .join('')
 }
 
 // Responsible for rendering the event list
@@ -37,13 +31,35 @@ export const EventList = () => {
     <button type="button" id='showEventForm' class="plusBtn">+</button>
     </div>
 `
+    let userAndFriendEventArray = []
 
     const allTheEvents = useEvents()
+
+
     const currentUserId = sessionStorage.getItem('activeUser')
     const filteredUserEvents = allTheEvents.filter(userEvent => userEvent.userId === parseInt(currentUserId));
 
+    // Puts a sorted array of the event data from the user and their friends
+    userAndFriendEventArray = userAndFriendEventArray.concat
+        (filteredUserEvents).sort
+        ((Beginning, End) => {
+
+            let [month1, day1, year1] = Beginning.date.split("-")
+            let [month2, day2, year2] = End.date.split("-")
+
+            if (year1 + month1 + day1 < year2 + month2 + day2) {
+                return -1
+            }
+            if (year1 + month1 + day1 > year2 + month2 + day2) {
+                return 1
+            }
+            return 0
+        }
+        )
+
     EventForm()
-    contentTarget.innerHTML += `<div class="eventList"> ${render(filteredUserEvents)}</div>`
+    contentTarget.innerHTML += `<div class="eventList"> ${render(userAndFriendEventArray)}</div>`
+
 }
 
 // If the event data is changed, re-render the new data and the surrounding divs
@@ -54,7 +70,7 @@ eventHub.addEventListener("eventStateChanged", CustomEvent => {
     <button type="button" id='showEventForm' class="plusBtn">+</button>
     </div>
     `
-    
+
     const allTheEvents = useEvents()
     const currentUserId = sessionStorage.getItem('activeUser')
     const filteredUserEvents = allTheEvents.filter(userEvent => userEvent.userId === parseInt(currentUserId));
