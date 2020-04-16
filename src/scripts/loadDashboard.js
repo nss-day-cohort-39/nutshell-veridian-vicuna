@@ -12,25 +12,25 @@ import { TaskList } from "./tasks/TaskList.js"
 import { NewsList } from './news/NewsList.js'
 
 //add all functions to load theh components here
-export const loadDashboard = (currentUserId) => {
-    userArea(currentUserId),
+export const loadDashboard = () => {
+    userArea(),
     EventList(), 
-    TaskList(currentUserId),
+    TaskList(),
     ChatList(),
-    NewsList(currentUserId)
+    NewsList()
 }
 
 //clears the dashboard to prevent conflicts
 export const clearDashboard = () => {
-  const clearTargets = [
-    '.user', //
-    '.news',
-    '.events',
-    '.tasks',
-    '.chat',
-  ]
+    const clearTargets = [
+        '.user', //
+        '.news',
+        '.events',
+        '.tasks',
+        '.chat',
+    ]
 
-  clearTargets.forEach(
-    (component) => (document.querySelector(component).innerHTML = '')
-  )
+    clearTargets.forEach(
+        (component) => (document.querySelector(component).innerHTML = '')
+    )
 }

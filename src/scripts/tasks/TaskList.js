@@ -24,7 +24,8 @@ contentTarget.addEventListener("click", (clickEvent) => {
 });
 
 // Get all the data and info necessary and collect only the tasks related to the current user
-const renderTasks = (currentUserId) => {
+const renderTasks = () => {
+      const currentUserId = document.querySelector("#currentUserId").value
       const allTheTasks = useTasks();
 
       // Convert the tasks from an aray of objects to an array of strings
@@ -32,6 +33,6 @@ const renderTasks = (currentUserId) => {
       return filteredUserTasks.map(task => Task(task)).join("")
 }
 
-export const TaskList = (currentUserId) => {
-  contentTarget.innerHTML = renderTasks(currentUserId);
+export const TaskList = () => {
+  contentTarget.innerHTML = renderTasks();
 };
