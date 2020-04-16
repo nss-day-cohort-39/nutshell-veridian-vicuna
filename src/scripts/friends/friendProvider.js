@@ -28,3 +28,12 @@ export const saveFriend = friend => {
         .then(getUsers)
         .then(dispatchStateChangeEvent)
 }
+
+//deletes a friend :(
+export const deleteFriend = friendId => {
+    return fetch(`http://localhost:8088/friends/${friendId}`, {
+            method: "DELETE"
+        })
+        .then(getUsers)
+        .then(dispatchStateChangeEvent)
+}

@@ -11,21 +11,32 @@ const eventHub = document.querySelector(".container")
 
 export const ShowAddFriendForm = () => {
         const currentUserId = document.querySelector("#currentUserId").value
-        const users = useUsers()
+        let users = useUsers()
+
+        const currentUserInfo = users.find(user => user.id === parseInt(currentUserId))
+        const friends = currentUserInfo.friends
+
+        //filter out users that current user is already friends with
+        users = users.filter(user => {
+            if (friends.some(friend => user.id === friend.following)) {
+                return false
+            }
+            return true
+        })
 
         return `
-    <div id="friendForm">
-    <input id="newFriendName" list="friendDatalist">
-        <datalist id="friendDatalist">
-        ${users.map(user => {
-            //map through all the users to create a datalist form element
-            if (user.id !== parseInt(currentUserId)) {
-                return `<option value="${user.username}">`
-            }
-        }).join('')}
-    </datalist>
-    <button id="AddFriendButton">Add Friend</button>
-    </div>
+            <div id="friendForm">
+            <input id="newFriendName" list="friendDatalist">
+                <datalist id="friendDatalist">
+                ${users.map(user => {
+                    //map through all the users to create a datalist form element
+                    if (user.id !== parseInt(currentUserId)) {
+                        return `<option value="${user.username}">`
+                    }
+                }).join('')}
+            </datalist>
+            <button id="AddFriendButton">Add Friend</button>
+            </div>
     `
 }
 
