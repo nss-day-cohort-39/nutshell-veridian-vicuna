@@ -25,7 +25,7 @@ contentTarget.addEventListener("click", (clickEvent) => {
 
 // Listens for the event we created in TaskProvider and re-renders and updates the task list 
 eventHub.addEventListener("taskStateChanged", customEvent => {
-    renderTasks()
+    TaskList()
 })
 
 // Get all the data and info necessary and collect only the tasks related to the current user
