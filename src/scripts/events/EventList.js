@@ -30,9 +30,9 @@ const render = (eventsToRender) => {
     .join('')
 }
 
-export const EventList = (currentUserId) => {
+export const EventList = () => {
     const events = useEvents()
-    contentTarget.innerHTML += `<div class="eventList"> ${render(events, currentUserId)}</div>`
+    contentTarget.innerHTML += `<div class="eventList"> ${render(events)}</div>`
 }
 
 // If the event data is changed, re-render the new data and the surrounding divs
@@ -45,7 +45,7 @@ eventHub.addEventListener("eventStateChanged", CustomEvent => {
     `
     
     let events = useEvents()
-    EventForm(currentUserId)
+    EventForm()
     contentTarget.innerHTML += `<div class="eventList"> ${render(events)}</div>`
 })
 
