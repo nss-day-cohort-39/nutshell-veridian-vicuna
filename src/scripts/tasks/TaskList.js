@@ -7,6 +7,8 @@
 // Imports
 import { deleteTask, useTasks } from "./TaskProvider.js";
 import { Task } from "./Task.js";
+import { ShowTaskFormButton } from "./ShowTaskFormButton.js";
+import { TaskForm } from "./TaskForm.js";
 
 // Assign Variable names to DOM targets
 const contentTarget = document.querySelector(".tasks");
@@ -39,5 +41,8 @@ const renderTasks = () => {
 }
 
 export const TaskList = () => {
-    contentTarget.innerHTML = renderTasks();
+    contentTarget.innerHTML = "<h2>Tasks</h2>"
+    contentTarget.innerHTML += TaskForm()
+    contentTarget.innerHTML += renderTasks()
+    contentTarget.innerHTML += ShowTaskFormButton()
 };
