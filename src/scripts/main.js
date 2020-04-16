@@ -26,8 +26,10 @@ const promises = [
 Promise.all(promises).then(() => {
     ShowLoginForm()
     ShowRegisterForm()
-        //if the user is already logged in, go ahead and load the dashboard components
+        //if the user is already logged in, go ahead and load the dashboard components and set the hidden input to the current user's ID
     if (currentUserId !== null) {
+        document.querySelector("#currentUserId").value = currentUserId
+        console.log(document.querySelector("#currentUserId").value)
         loadDashboard(currentUserId)
     }
 })

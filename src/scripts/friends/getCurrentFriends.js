@@ -7,7 +7,8 @@
 
 import { useUsers } from "../users/userProvider.js"
 
-export const getFriendObjects = (currentUserId) => {
+export const getFriendObjects = () => {
+    const currentUserId = document.querySelector("#currentUserId").value
     const users = useUsers()
 
     const currentUserInfo = users.find(user => user.id === parseInt(currentUserId))
