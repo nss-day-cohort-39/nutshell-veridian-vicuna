@@ -22,6 +22,7 @@ eventHub.addEventListener('click', (clickEvent) => {
     const synopsis = document.querySelector('#synopsis').value
     const url = document.querySelector('#url').value
     const timestamp = document.querySelector('#timestamp').value
+    const userId = sessionStorage.getItem('activeUser')
 
     // Make a new object representation of a news
     const newNews = {
@@ -29,6 +30,7 @@ eventHub.addEventListener('click', (clickEvent) => {
       synopsis: synopsis,
       url: url,
       timestamp: Date.now(),
+      userId: parseInt(userId),
     }
 
     // Change API state and application state
