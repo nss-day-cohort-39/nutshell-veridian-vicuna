@@ -1,10 +1,16 @@
-/* Author: Jayson Rice - This component displays the list of events and also 
-holds the button to open the event form. It also handles event listeners for the events
+/*  Author: Jayson Rice - This component displays the list of events and also 
+    holds the button to open the event form. It also handles event listeners for the events
 */
 import { Event } from "./Event.js";
 import { useEvents, deleteEvent } from "./eventProvider.js";
 import { EventForm } from "./EventForm.js";
 import { useUsers } from "../users/userProvider.js";
+
+
+// const allTheEvents = useEvents()
+// const currentUserId = sessionStorage.getItem('activeUser')
+// const filteredUserEvents = allTheEvents.filter(userEvent => userEvent.userId === parseInt(currentUserId));
+
 
 const contentTarget = document.querySelector(".events")
 const eventHub = document.querySelector(".container")
@@ -13,7 +19,7 @@ const render = (eventsToRender) => {
 
   return eventsToRender
     .map((eventObject) => {
-
+        
         const userArray= useUsers()
         const chosenUser = userArray.find(
             user => user.id === eventObject.userId)
@@ -28,12 +34,16 @@ export const EventList = () => {
     contentTarget.innerHTML = `
     <div class="headflexRow">
     <h2 class="eventsTitle">Upcoming Events</h2>
-    <button id='showEventForm' class="plusBtn">+</button>
+    <button type="button" id='showEventForm' class="plusBtn">+</button>
     </div>
 `
-    const events = useEvents()
+
+    const allTheEvents = useEvents()
+    const currentUserId = sessionStorage.getItem('activeUser')
+    const filteredUserEvents = allTheEvents.filter(userEvent => userEvent.userId === parseInt(currentUserId));
+
     EventForm()
-    contentTarget.innerHTML += `<div class="eventList"> ${render(events)}</div>`
+    contentTarget.innerHTML += `<div class="eventList"> ${render(filteredUserEvents)}</div>`
 }
 
 // If the event data is changed, re-render the new data and the surrounding divs
@@ -41,13 +51,16 @@ eventHub.addEventListener("eventStateChanged", CustomEvent => {
     contentTarget.innerHTML = `
     <div class="headflexRow">
     <h2 class="eventsTitle">Upcoming Events</h2>
-    <button id='showEventForm' class="plusBtn">+</button>
+    <button type="button" id='showEventForm' class="plusBtn">+</button>
     </div>
     `
     
-    const events = useEvents()
+    const allTheEvents = useEvents()
+    const currentUserId = sessionStorage.getItem('activeUser')
+    const filteredUserEvents = allTheEvents.filter(userEvent => userEvent.userId === parseInt(currentUserId));
+
     EventForm()
-    contentTarget.innerHTML += `<div class="eventList"> ${render(events)}</div>`
+    contentTarget.innerHTML += `<div class="eventList"> ${render(filteredUserEvents)}</div>`
 
 })
 

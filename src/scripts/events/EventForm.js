@@ -56,7 +56,7 @@ const render = () => {
             <label class="event--form--item event--location" for="eventLocation">Event Location:</label>
             <textarea class="event--form--item" id="eventLocation"></textarea>
 
-            <button class="event--form--item" id="saveEvent">Save Event</button>
+            <button type="button" class="event--form--item" id="saveEvent">Save Event</button>
         </fieldset>
     </div>
 `
