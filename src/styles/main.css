@@ -2,7 +2,8 @@
 @import './dh-common/_dh-main.css';
 @import './header-footer.css';
 @import './typography.css';
-@import './flex-grid.css';
+/* @import './flex-grid.css'; */
+@import './flexbox-only.css';
 @import './news.css';
 @import './events.css';
 @import './chat.css';
