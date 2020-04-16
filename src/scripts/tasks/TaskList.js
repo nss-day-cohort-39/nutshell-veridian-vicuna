@@ -17,11 +17,16 @@ const eventHub = document.querySelector(".container");
     that info to our deleteTask fetch in our provider
 */
 contentTarget.addEventListener("click", (clickEvent) => {
-    if (clickEvent.target.id.startsWith("deleteTask--")) {
-        const [prefix, taskId] = clickEvent.target.id.split("--");
-        deleteTask(taskId);
-    }
-});
+  if (clickEvent.target.id.startsWith("deleteTask--")) {
+    const [prefix, taskId] = clickEvent.target.id.split("--");
+    deleteTask(taskId);
+  }
+})
+
+// Listens for the event we created in TaskProvider and re-renders and updates the task list 
+eventHub.addEventListener("taskStateChanged", customEvent => {
+    TaskList()
+})
 
 // Get all the data and info necessary and collect only the tasks related to the current user
 const renderTasks = () => {

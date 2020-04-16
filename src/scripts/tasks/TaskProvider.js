@@ -1,16 +1,16 @@
 /*
     This module is responsible for the managment of the task data.
     It will retreive it, save it, and delete it and provide a
-    state change event that when heard will re-render the list of
-    to show the most recent updates to the list
+    state change event that when heard will re-render the task 
+    list to show the most recent updates to it.
 */
 
 
-// Set a target in our HTML file equal to eventHub
+// Set a target in our HTML file equal to eventHub to be used by our events
 const eventHub = document.querySelector(".container")
 
 
-// Provide an event that will dispatch that the task state has changed
+// Provides an event that will dispatch that the task list state has changed
 const dispatchStateChangeEvent = () => {
     const taskStateChangedEvent = new CustomEvent("taskStateChanged")
 
@@ -18,15 +18,15 @@ const dispatchStateChangeEvent = () => {
 }
 
 
-// Make the notes equal to an empty array that can be filled by our server requests
+// Makes the notes equal to an empty array that can be filled by our server requests
 let tasks = []
 
 
-// Create a copy of our data
+// Creates a copy of our data
 export const useTasks = () => tasks.slice()
 
 
-// Get the data from the database
+// Gets the data from the database
 export const getTasks = () => {
     return fetch('http://localhost:8088/tasks')
         .then(response => response.json())
@@ -36,7 +36,7 @@ export const getTasks = () => {
 
 }
 
-// Make it possible to save a new task from the database
+// Saves a new task from the database when triggered
 export const saveTask = task => {
     return fetch('http://localhost:8088/tasks', {
         method: "POST",
@@ -49,9 +49,9 @@ export const saveTask = task => {
     .then(dispatchStateChangeEvent)
 }
 
-// Make it possible to delete a task from the database
+// Deletes a task from the database when triggered
 export const deleteTask = taskId => {
-    return fetch(`http://localhost:8088/notes/${taskId}`, {
+    return fetch(`http://localhost:8088/tasks/${taskId}`, {
         method: "DELETE"
     })
         .then(getTasks)
