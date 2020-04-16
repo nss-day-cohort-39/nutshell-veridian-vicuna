@@ -10,11 +10,13 @@
 }
 
 .chatPreview {
+  overflow-y: scroll;
   margin-top: auto;
+  max-height: 42rem;
 }
 
 .chatPreview__message {
-  /* width: 95%; */
+  
   padding: 0.25rem 0.5rem;
   border-radius: 6px;
   box-shadow: 2px 2px 4px -4px hsla(0, 0%, 0%, 0.5);

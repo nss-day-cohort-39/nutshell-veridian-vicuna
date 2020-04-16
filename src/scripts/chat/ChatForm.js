@@ -1,21 +1,21 @@
 // function that represents form as HTML
-const render = (currentUserId) => {
+const render = () => {
   return `
+      <form>
         <input 
           type="text" 
           id="newMessage" 
-          placeholder="enter message..." 
+          placeholder="Enter message..." 
           maxlength="140" 
           autocomplete="off" 
           required
         >
-        <button class="chatPreview__button" id="sendMessage">SEND</button>
+        <button type="button" class="chatPreview__button" id="sendMessage">SEND</button>
+      </form>
         `;
 };
 
 // function to render the form & export
-export const ChatForm = (currentUserId) => {
-  return render(currentUserId);
+export const ChatForm = () => {
+  return render();
 };
-
-
