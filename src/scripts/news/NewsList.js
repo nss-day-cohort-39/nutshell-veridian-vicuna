@@ -27,8 +27,8 @@ const render = (newsToRender) => {
 export const NewsList = (currentUserId) => {
   const news = useNews()
   contentTarget.innerHTML += `
-    <div class="newsList">${render(news)}</div>
     <div id="newsForm"></div>
+    <div class="newsList">${render(news)}</div>
   `
 }
 
@@ -36,7 +36,7 @@ contentTarget.addEventListener('click', (clickEvent) => {
   if (clickEvent.target.id === 'plusBtn') {
     const customEvent = new CustomEvent('newsFormButtonClicked')
     eventHub.dispatchEvent(customEvent)
-    console.log('.plusBtn clicked!!')
+    // console.log('.plusBtn clicked!!')
     NewsForm()
   }
 })

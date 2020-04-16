@@ -48,3 +48,62 @@
   font-size: small;
   color: var(--gray700);
 }
+
+#newsForm {
+  width: 100%;
+}
+
+#newsForm .formWrap {
+  position: relative;
+  z-index: 100;
+  border-radius: 4px !important;
+  box-shadow: 0rem 0rem 0rem 100rem hsla(0, 0%, 0%, 0.5);
+}
+
+#newsForm .fadeBackground {
+  /* width: 100%; */
+}
+
+#newsForm label {
+  font-size: 1rem;
+  font-weight: 100;
+  letter-spacing: 0.05ch;
+}
+
+#newsForm input {
+  font-size: 1rem;
+  font-weight: 100;
+  letter-spacing: 0.05ch;
+  padding: 0.25rem 0.5rem;
+}
+
+#newsForm input#newsUrl {
+  font-size: 0.9rem;
+  font-weight: 100;
+  letter-spacing: 0.05ch;
+  padding: 0.25rem 0.5rem;
+}
+
+#newsForm label,
+#newsForm textarea {
+  font-size: 0.9rem;
+  font-weight: 100;
+  letter-spacing: 0.05ch;
+  padding: 0.25rem 0.5rem;
+}
+
+#newsForm textarea {
+  font-size: 0.85rem;
+  font-weight: 100;
+  letter-spacing: 0.05ch;
+  padding: 0.25rem 0.5rem;
+  line-height: 1.5;
+}
+/*
+#newsForm button {
+  font-size: 0.85rem;
+  font-weight: 100;
+  letter-spacing: 0.05ch;
+  padding: 0.25rem 0.5rem;
+  line-height: 1.5;
+} */

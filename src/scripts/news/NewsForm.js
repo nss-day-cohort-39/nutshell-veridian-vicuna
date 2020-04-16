@@ -2,20 +2,20 @@ const eventHub = document.querySelector('.container')
 const contentTarget = document.querySelector('#newsForm')
 // const newsContent = document.querySelector('.news')
 
-let visibility = false
+// let visibility = false
+//
+// eventHub.addEventListener('newsFormButtonClicked', (customEvent) => {
+//   visibility = !visibility
 
-eventHub.addEventListener('newsFormButtonClicked', (customEvent) => {
-  visibility = !visibility
-
-  if (visibility) {
-    contentTarget.classList.remove('hide')
-  } else {
-    contentTarget.classList.add('hide')
-  }
-})
+//   if (visibility) {
+//     contentTarget.classList.add('hide')
+//   } else {
+//     contentTarget.classList.remove('hide')
+//   }
+// })
 
 // Handle browser-generated click event in component
-contentTarget.addEventListener('click', (clickEvent) => {
+eventHub.addEventListener('click', (clickEvent) => {
   if (clickEvent.target.id === 'addNews') {
     const newsTitle = document.querySelector('#newsTitle').value
     const newsSynopsis = document.querySelector('#newsSynopsis').value
@@ -26,7 +26,6 @@ contentTarget.addEventListener('click', (clickEvent) => {
       newsTitle: newsTitle,
       newsSynopsis: newsSynopsis,
       newsUrl: newsUrl,
-      // timestamp: Date.now(),
     }
 
     // Change API state and application state
@@ -42,18 +41,20 @@ const render = () => {
 
   contentTarget.innerHTML = `
     <div class="formWrap">
-      <form class="panel dh-Form marB1">
+      <form class="dh-Form panel fadeBackground marB1">
 
         <label for="newsTitle">Title</label>
         <input type="text" id="newsTitle">
 
         <label for="newsSynopsis">Synopsis</label>
-        <textarea type="text" id="newsSynopsis" rows=5></textarea>
+        <textarea type="text" id="newsSynopsis" rows=3></textarea>
 
         <label for="newsUrl">Url</label>
         <input type="text" id="newsUrl">
 
-        <button id="addNews" class="btnSmall marT1">Add News</button>
+         <input type="hidden" id="timestamp" value="">
+
+        <button id="addNews" class="btnSmall marT2">Add News</button>
       </form>
     </div>
   `
