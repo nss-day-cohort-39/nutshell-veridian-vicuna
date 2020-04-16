@@ -39,7 +39,7 @@
 }
 
 .chatPreview__message:nth-child(odd) {
-  background: rgb(202, 255, 255);
+  background: var(--teal50);
   text-align: left;
 }
 

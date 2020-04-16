@@ -3,18 +3,6 @@ import { saveNews } from './newsProvider.js'
 const eventHub = document.querySelector('.container')
 const contentTarget = document.querySelector('.newsForm')
 
-// let visibility = false
-
-// eventHub.addEventListener('newsFormButtonClicked', (customEvent) => {
-//   visibility = !visibility
-
-//   if (visibility) {
-//     contentTarget.classList.add('hide')
-//   } else {
-//     contentTarget.classList.remove('hide')
-//   }
-// })
-
 // Handle browser-generated click event in component
 eventHub.addEventListener('click', (clickEvent) => {
   if (clickEvent.target.id === 'saveNews') {
@@ -41,12 +29,9 @@ eventHub.addEventListener('click', (clickEvent) => {
 const render = () => {
   const contentTarget = document.querySelector('.newsForm')
 
-  // contentTarget.classList.add('hide')
-  // const allNews = useNews()
-
   return `
     <div class="formWrap">
-      <form class="dh-Form panel fadeBackground marB1">
+      <div class="dh-Form panel fadeBackground marB1">
 
         <div id="xOut" class="xOut">X</div>
 
@@ -62,7 +47,7 @@ const render = () => {
         <input type="hidden" id="timestamp" value="">
 
         <button id="saveNews" class="btnSmall marT2">Add News</button>
-      </form>
+      </div>
     </div>
   `
 }
