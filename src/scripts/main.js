@@ -8,8 +8,12 @@ import { loadDashboard } from "./loadDashboard.js";
 import { getEvents } from "./events/eventProvider.js";
 import { getTasks } from "./tasks/TaskProvider.js";
 import { getNews } from './news/newsProvider.js'
+import './userAuth/registerUser.js'
+import './chat/ChatList.js'
 import { getChats } from './chat/chatProvider.js'
 import './friends/addNewFriend.js'
+
+
 
 //get the current user from session storage
 const currentUserId = sessionStorage.getItem('activeUser')
