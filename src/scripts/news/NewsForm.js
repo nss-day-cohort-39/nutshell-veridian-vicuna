@@ -1,23 +1,21 @@
 const eventHub = document.querySelector('.container')
-const contentTarget = document.querySelector('#newsForm')
+const contentTarget = document.querySelector('#plusBtn')
 
-// const newsContent = document.querySelector('.news')
+let visibility = false
 
-// let visibility = false
+eventHub.addEventListener('newsFormButtonClicked', (customEvent) => {
+  visibility = !visibility
 
-// eventHub.addEventListener('newsFormButtonClicked', (customEvent) => {
-//   visibility = !visibility
-
-//   if (visibility) {
-//     contentTarget.classList.add('hide')
-//   } else {
-//     contentTarget.classList.remove('hide')
-//   }
-// })
+  if (visibility) {
+    contentTarget.classList.add('hide')
+  } else {
+    contentTarget.classList.remove('hide')
+  }
+})
 
 // Handle browser-generated click event in component
 eventHub.addEventListener('click', (clickEvent) => {
-  if (clickEvent.target.id === 'addNews') {
+  if (clickEvent.target.id === 'saveNews') {
     const newsTitle = document.querySelector('#newsTitle').value
     const newsSynopsis = document.querySelector('#newsSynopsis').value
     const newsUrl = document.querySelector('#newsUrl').value
@@ -35,9 +33,9 @@ eventHub.addEventListener('click', (clickEvent) => {
 })
 
 const render = () => {
-  const contentTarget = document.querySelector('#newsForm')
+  const contentTarget = document.querySelector('#plusBtn')
 
-  // contentTarget.classList.add('hide')
+  contentTarget.classList.add('hide')
   // const allNews = useNews()
 
   const deleteItinBtn = document.querySelector('#deleteItinBtn')
@@ -64,9 +62,9 @@ const render = () => {
         <label for="newsUrl">Url</label>
         <input type="text" id="newsUrl">
 
-         <input type="hidden" id="timestamp" value="">
+        <input type="hidden" id="timestamp" value="">
 
-        <button id="addNews" class="btnSmall marT2">Add News</button>
+        <button id="saveNews" class="btnSmall marT2">Add News</button>
       </form>
     </div>
   `
