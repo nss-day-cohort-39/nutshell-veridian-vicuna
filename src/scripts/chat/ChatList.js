@@ -6,10 +6,15 @@ import { ChatForm } from "./ChatForm.js";
 // query DOM for the element (.chat) that holds our chat list
 const contentTarget = document.querySelector(".chat");
 const eventHub = document.querySelector(".container");
+let newMessage = ""
 
 // event listener that re-renders the chat on message state change (new messages)
 eventHub.addEventListener("chatStateChanged", (customEvent) => {
-  render();
+  if (newMessage !== "") {
+    render();
+  } else {
+    alert('Please enter a chat message.')
+  }
 });
 
 // function to call the html representation of a chat message
@@ -34,9 +39,9 @@ const render = () => {
 
 // event listener
 contentTarget.addEventListener("click", (clickEvent) => {
-  if (clickEvent.target.id === "sendMessage") {
-    const newMessage = document.querySelector("#newMessage").value;
-    const userId = sessionStorage.getItem('activeUser')
+  if (clickEvent.target.id === "sendMessage" && ) {
+    newMessage = document.querySelector("#newMessage").value;
+    const userId = parseInt(sessionStorage.getItem('activeUser'))
     const newMessageObject = {
       userId: userId,
       message: newMessage,
