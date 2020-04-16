@@ -1,17 +1,19 @@
+import { saveNews } from './newsProvider.js'
+
 const eventHub = document.querySelector('.container')
-const contentTarget = document.querySelector('#plusBtn')
+const contentTarget = document.querySelector('.newsForm')
 
-let visibility = false
+// let visibility = false
 
-eventHub.addEventListener('newsFormButtonClicked', (customEvent) => {
-  visibility = !visibility
+// eventHub.addEventListener('newsFormButtonClicked', (customEvent) => {
+//   visibility = !visibility
 
-  if (visibility) {
-    contentTarget.classList.add('hide')
-  } else {
-    contentTarget.classList.remove('hide')
-  }
-})
+//   if (visibility) {
+//     contentTarget.classList.add('hide')
+//   } else {
+//     contentTarget.classList.remove('hide')
+//   }
+// })
 
 // Handle browser-generated click event in component
 eventHub.addEventListener('click', (clickEvent) => {
@@ -33,21 +35,20 @@ eventHub.addEventListener('click', (clickEvent) => {
 })
 
 const render = () => {
-  const contentTarget = document.querySelector('#plusBtn')
+  const contentTarget = document.querySelector('.newsForm')
 
-  contentTarget.classList.add('hide')
+  // contentTarget.classList.add('hide')
   // const allNews = useNews()
 
   const deleteItinBtn = document.querySelector('#deleteItinBtn')
 
   contentTarget.addEventListener('click', (clickEvent) => {
     if (deleteItinBtn.target.id === 'deleteItinBtn') {
-      console.log('crazytown', deleteItinBtn.id)
       document.getElementById('deleteItinBtn').className = 'hide'
     }
   })
 
-  contentTarget.innerHTML = `
+  return `
     <div class="formWrap">
       <form class="dh-Form panel fadeBackground marB1">
 
@@ -71,5 +72,7 @@ const render = () => {
 }
 
 export const NewsForm = () => {
-  return render()
+  const contentTarget = document.querySelector('.newsForm')
+
+  contentTarget.innerHTML = render()
 }

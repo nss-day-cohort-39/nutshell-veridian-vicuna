@@ -1,4 +1,5 @@
 import { News } from './News.js'
+import { NewsForm } from './NewsForm.js'
 import { useNews } from './newsProvider.js'
 
 const eventHub = document.querySelector('.container')
@@ -15,6 +16,12 @@ contentTarget.innerHTML = `
     <button id="plusBtn">+</button>
   </div>
 `
+contentTarget.addEventListener('click', (clickEvent) => {
+  if (clickEvent.target.id === 'plusBtn') {
+    // console.log('yeah')
+    NewsForm()
+  }
+})
 
 const render = (newsToRender) => {
   return newsToRender
@@ -26,6 +33,7 @@ const render = (newsToRender) => {
 export const NewsList = () => {
   const news = useNews()
   contentTarget.innerHTML += `
+    <div class="newsForm"></div>
     <div class="newsList">${render(news)}</div>
   `
 }
