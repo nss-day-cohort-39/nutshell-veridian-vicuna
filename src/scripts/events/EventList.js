@@ -9,15 +9,8 @@ import { useUsers } from "../users/userProvider.js";
 const contentTarget = document.querySelector(".events")
 const eventHub = document.querySelector(".container")
 
-// Adds a static title and a button to the top of the event list
-contentTarget.innerHTML = `
-<div class="headflexRow">
-<h2 class="eventsTitle">Upcoming Events</h2>
-<button id='showEventForm' class="plusBtn">+</button>
-</div>
-`
-
 const render = (eventsToRender) => {
+
   return eventsToRender
     .map((eventObject) => {
 
@@ -30,8 +23,16 @@ const render = (eventsToRender) => {
     .join('')
 }
 
+// Responsible for rendering the event list
 export const EventList = () => {
+    contentTarget.innerHTML = `
+    <div class="headflexRow">
+    <h2 class="eventsTitle">Upcoming Events</h2>
+    <button id='showEventForm' class="plusBtn">+</button>
+    </div>
+`
     const events = useEvents()
+    EventForm()
     contentTarget.innerHTML += `<div class="eventList"> ${render(events)}</div>`
 }
 
@@ -40,11 +41,11 @@ eventHub.addEventListener("eventStateChanged", CustomEvent => {
     contentTarget.innerHTML = `
     <div class="headflexRow">
     <h2 class="eventsTitle">Upcoming Events</h2>
-    <button class="plusBtn" id='showEventForm'>+</button>
+    <button id='showEventForm' class="plusBtn">+</button>
     </div>
     `
     
-    let events = useEvents()
+    const events = useEvents()
     EventForm()
     contentTarget.innerHTML += `<div class="eventList"> ${render(events)}</div>`
 })

@@ -10,12 +10,10 @@ import { userArea } from "./users/userArea.js"
 import { EventList } from "./events/EventList.js"
 import { TaskList } from "./tasks/TaskList.js"
 import { NewsList } from './news/NewsList.js'
-import { EventForm } from "./events/EventForm.js"
 
 //add all functions to load theh components here
 export const loadDashboard = () => {
     userArea(),
-    EventForm(),
     EventList(), 
     TaskList(),
     ChatList(),
