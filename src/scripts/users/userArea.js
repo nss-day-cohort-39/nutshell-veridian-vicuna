@@ -10,6 +10,7 @@ import { ShowLogoutButton } from "../userAuth/LogoutButton.js"
 import { ShowFriendList } from "../friends/FriendList.js"
 import { ShowAddFriendForm } from "../friends/AddNewFriendForm.js"
 
+const eventHub = document.querySelector(".container")
 const contentTarget = document.querySelector(".user")
 
 export const userArea = () => {
@@ -37,3 +38,12 @@ export const userArea = () => {
         </div>
     </div>`
 }
+
+
+eventHub.addEventListener("friendStateChanged", event => {
+    const friendListTarget = document.querySelector("#friendList")
+    friendListTarget.innerHTML = `
+    <h2>My Friends</h2>
+            ${ShowFriendList()}
+    `
+})
