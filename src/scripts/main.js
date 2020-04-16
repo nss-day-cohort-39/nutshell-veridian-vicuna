@@ -2,13 +2,14 @@ import { pageStateChanged } from "./appController.js";
 import { ShowLoginForm } from "./userAuth/LoginForm.js";
 import { ShowRegisterForm } from "./userAuth/RegisterForm.js";
 import { getUsers } from "./users/userProvider.js";
+import './userAuth/loginUser.js'
+import "./userAuth/registerUser.js"
+import { loadDashboard } from "./loadDashboard.js";
 import { getEvents } from "./events/eventProvider.js";
 import { getTasks } from "./tasks/TaskProvider.js";
-import { loadDashboard } from './loadDashboard.js'
 import { getNews } from './news/newsProvider.js'
 import { getChats } from './chat/chatProvider.js'
 import './friends/addNewFriend.js'
-import './userAuth/loginUser.js'
 
 //get the current user from session storage
 const currentUserId = sessionStorage.getItem('activeUser')
