@@ -5,7 +5,7 @@ const eventHub = document.querySelector('.container')
 const contentTarget = document.querySelector('.news')
 
 eventHub.addEventListener('newsStateChanged', (customEvent) => {
-  render()
+    render()
 })
 
 // .news is wrap div
@@ -17,15 +17,15 @@ contentTarget.innerHTML = `
 `
 
 const render = (newsToRender) => {
-  return newsToRender
-    .map((newsObject) => {
-      return News(newsObject)
-    })
-    .join('')
+    return newsToRender
+        .map((newsObject) => {
+            return News(newsObject)
+        })
+        .join('')
 }
-export const NewsList = (currentUserId) => {
-  const news = useNews()
-  contentTarget.innerHTML += `
+export const NewsList = () => {
+    const news = useNews()
+    contentTarget.innerHTML += `
     <div class="newsList">${render(news)}</div>
   `
 }

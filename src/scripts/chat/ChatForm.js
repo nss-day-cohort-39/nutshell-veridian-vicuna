@@ -1,8 +1,14 @@
 // function that represents form as HTML
 const render = (currentUserId) => {
   return `
-        <input type="text" name="newMessage" id="newMessage" default="enter message" maxlength="140" autocomplete="off" required>
-        <input type="hidden" id="messageUserId" value="${currentUserId}">
+        <input 
+          type="text" 
+          id="newMessage" 
+          placeholder="enter message..." 
+          maxlength="140" 
+          autocomplete="off" 
+          required
+        >
         <button class="chatPreview__button" id="sendMessage">SEND</button>
         `;
 };

@@ -9,14 +9,14 @@ const eventHub = document.querySelector(".container");
 
 // event listener that re-renders the chat on message state change (new messages)
 eventHub.addEventListener("chatStateChanged", (customEvent) => {
-  const messages = useChats();
-  render(messages);
+  render();
 });
 
 // function to call the html representation of a chat message
-const render = (messages, currentUserId) => {
+const render = () => {
   // iterate through the full array of messages and convert each one to HTML representation
   const users = useUsers();
+  const messages = useChats();
 
   contentTarget.innerHTML = `
     <article class="chatPreview">
@@ -27,7 +27,7 @@ const render = (messages, currentUserId) => {
             return ChatHTML(message, user);
           })
           .join("")}
-        <div class="chatPreview__form">${ChatForm(currentUserId)}</div>
+        <div class="chatPreview__form">${ChatForm()}</div>
     </article>
     `;
 };
@@ -36,7 +36,7 @@ const render = (messages, currentUserId) => {
 contentTarget.addEventListener("click", (clickEvent) => {
   if (clickEvent.target.id === "sendMessage") {
     const newMessage = document.querySelector("#newMessage").value;
-    const userId = document.querySelector("#messageUserId").value
+    const userId = sessionStorage.getItem('activeUser')
     const newMessageObject = {
       userId: userId,
       message: newMessage,
@@ -46,7 +46,7 @@ contentTarget.addEventListener("click", (clickEvent) => {
 });
 
 // function that builds the chat list from full array of chat messages
-export const ChatList = (currentUserId) => {
-  const messages = useChats();
-  render(messages, currentUserId);
+export const ChatList = () => {
+  
+  render();
 };
