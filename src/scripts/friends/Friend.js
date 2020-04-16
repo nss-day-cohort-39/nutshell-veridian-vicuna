@@ -12,10 +12,12 @@ const eventHub = document.querySelector(".container")
 
 export const Friend = (friendObject) => {
     return `
-    <h3>
-        ${friendObject.username}
+    <div class="friend box">
+        <h3>
+            ${friendObject.username}
+        </h3>
         <button id="deleteFriend--${friendObject.id}">Remove</button>
-    </h3>`
+    </div>`
 }
 
 eventHub.addEventListener("click", event => {

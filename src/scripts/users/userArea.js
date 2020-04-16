@@ -21,18 +21,17 @@ export const userArea = () => {
 
     contentTarget.innerHTML = `
     <div>
-    Welcome, ${currentUserInfo.username}!
+    <h2>Welcome, ${currentUserInfo.username}!</h2>
     ${ShowLogoutButton()}
     </div>
-    `
-
-    contentTarget.innerHTML += `
     <div id="friendsContainer">
         <div id="friendList">
             <h2>My Friends</h2>
             ${ShowFriendList()}
         </div>
+        <hr />
         <div id="friendForm">
+            <h2>Add New Friend</h2>
             ${ShowAddFriendForm()}
         </div>
     </div>`

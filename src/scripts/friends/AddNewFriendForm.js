@@ -35,7 +35,7 @@ export const ShowAddFriendForm = () => {
                     }
                 }).join('')}
             </datalist>
-            <button id="AddFriendButton">Add Friend</button>
+            <button id="AddFriendButton">Add</button>
             </div>
     `
 }
