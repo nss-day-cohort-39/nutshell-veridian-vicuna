@@ -111,6 +111,9 @@ eventHub.addEventListener("registerButtonClicked", event => {
                 //set the local session to the user's ID
                 sessionStorage.setItem("activeUser", newUserId)
 
+                //set the currentUserId blank input to the user's ID for use in modules
+                document.querySelector("#currentUserId").value = newUserId
+
                 //load the dashboard for the user
                 loadDashboard(newUserId)
 

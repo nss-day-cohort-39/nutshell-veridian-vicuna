@@ -11,8 +11,9 @@ import { ShowFriendList } from "../friends/FriendList.js"
 
 const contentTarget = document.querySelector(".user")
 
-export const userArea = (currentUserId) => {
+export const userArea = () => {
     const users = useUsers()
+    const currentUserId = document.querySelector("#currentUserId").value
 
     //get current user's info
     const currentUserInfo = users.find(user => user.id === parseInt(currentUserId))
@@ -28,7 +29,7 @@ export const userArea = (currentUserId) => {
     <div id="friendsContainer">
     <div id="friendList">
     <h2>My Friends</h2>
-    ${ShowFriendList(currentUserId)}
+    ${ShowFriendList()}
     </div>
     </div>`
 }
