@@ -1,13 +1,13 @@
-import { pageStateChanged } from './appController.js'
-import { getEvents } from './events/eventProvider.js'
+import { pageStateChanged } from "./appController.js";
+import { ShowLoginForm } from "./userAuth/LoginForm.js";
+import { ShowRegisterForm } from "./userAuth/RegisterForm.js";
+import { getUsers } from "./users/userProvider.js";
+import { getEvents } from "./events/eventProvider.js";
+import { getTasks } from "./tasks/TaskProvider.js";
 import { loadDashboard } from './loadDashboard.js'
 import { getNews } from './news/newsProvider.js'
-import { ShowLoginForm } from './userAuth/LoginForm.js'
-import './userAuth/loginUser.js'
-import { ShowRegisterForm } from './userAuth/RegisterForm.js'
-import './userAuth/registerUser.js'
-import { getUsers } from './users/userProvider.js'
 import { getChats } from './chat/chatProvider.js'
+import './userAuth/loginUser.js'
 
 //get the current user from session storage
 const currentUserId = sessionStorage.getItem('activeUser')
@@ -20,7 +20,8 @@ const promises = [
     getUsers(),
     getEvents(),
     getNews(),
-    getChats()
+    getChats(),
+    getTasks()
 ]
 
 Promise.all(promises).then(() => {
