@@ -1,9 +1,10 @@
 const eventHub = document.querySelector('.container')
 const contentTarget = document.querySelector('#newsForm')
+
 // const newsContent = document.querySelector('.news')
 
 // let visibility = false
-//
+
 // eventHub.addEventListener('newsFormButtonClicked', (customEvent) => {
 //   visibility = !visibility
 
@@ -39,9 +40,20 @@ const render = () => {
   // contentTarget.classList.add('hide')
   // const allNews = useNews()
 
+  const deleteItinBtn = document.querySelector('#deleteItinBtn')
+
+  contentTarget.addEventListener('click', (clickEvent) => {
+    if (deleteItinBtn.target.id === 'deleteItinBtn') {
+      console.log('crazytown', deleteItinBtn.id)
+      document.getElementById('deleteItinBtn').className = 'hide'
+    }
+  })
+
   contentTarget.innerHTML = `
     <div class="formWrap">
       <form class="dh-Form panel fadeBackground marB1">
+
+        <div id="deleteItinBtn" class="xOut">X</div>
 
         <label for="newsTitle">Title</label>
         <input type="text" id="newsTitle">
