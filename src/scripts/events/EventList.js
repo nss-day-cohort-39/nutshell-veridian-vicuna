@@ -69,20 +69,7 @@ export const EventList = () => {
 
 // If the event data is changed, re-render the new data and the surrounding divs
 eventHub.addEventListener("eventStateChanged", CustomEvent => {
-    contentTarget.innerHTML = `
-    <div class="headflexRow">
-    <h2 class="eventsTitle">Upcoming Events</h2>
-    <button type="button" id='showEventForm' class="plusBtn">+</button>
-    </div>
-    `
-
-    const allTheEvents = useEvents()
-    const currentUserId = sessionStorage.getItem('activeUser')
-    const filteredUserEvents = allTheEvents.filter(userEvent => userEvent.userId === parseInt(currentUserId));
-
-    EventForm()
-    contentTarget.innerHTML += `<div class="eventList"> ${render(filteredUserEvents)}</div>`
-
+    EventList()
 })
 
 // Tells other components when the event form button is clicked
