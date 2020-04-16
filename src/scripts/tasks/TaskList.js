@@ -21,7 +21,12 @@ contentTarget.addEventListener("click", (clickEvent) => {
     const [prefix, taskId] = clickEvent.target.id.split("--");
     deleteTask(taskId);
   }
-});
+})
+
+// Listens for the event we created in TaskProvider and re-renders and updates the task list 
+eventHub.addEventListener("taskStateChanged", customEvent => {
+    renderTasks()
+})
 
 // Get all the data and info necessary and collect only the tasks related to the current user
 const renderTasks = () => {
