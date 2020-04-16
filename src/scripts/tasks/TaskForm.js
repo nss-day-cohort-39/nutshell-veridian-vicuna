@@ -5,6 +5,22 @@
 
 
 const contentTarget = document.querySelector(".tasks")
+const eventHub = document.querySelector(".container")
+
+let visibility = false
+
+// Create an event listener that will display the task form to appear in the task container when heard
+eventHub.addEventListener("noteFormButtonClicked", customEvent => {
+    visibility = !visibility
+    
+    if(visibility){
+        contentTarget.classList.remove("invisible")
+    }
+    else{
+        contentTarget.classList.add("invisible")
+    }
+    
+})
 
 // The Task form HTML
 export const TaskForm = () => {
