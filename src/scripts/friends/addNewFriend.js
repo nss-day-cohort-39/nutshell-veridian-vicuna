@@ -63,6 +63,9 @@ eventHub.addEventListener("AddNewFriend", event => {
             }
 
             saveFriend(newFriend)
+        } else {
+            //clear out data in the friend form if they click cancel
+            document.querySelector("#newFriendName").value = ''
         }
 
     }

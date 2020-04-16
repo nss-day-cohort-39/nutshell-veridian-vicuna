@@ -20,17 +20,19 @@ export const Friend = (friendObject) => {
 
 eventHub.addEventListener("click", event => {
     if (event.target.id.startsWith("deleteFriend--")) {
-        const currentUserId = document.querySelector("#currentUserId").value
-        const users = useUsers()
+        if (window.confirm(`Are you sure you want to remove this friend?`)) {
+            const currentUserId = document.querySelector("#currentUserId").value
+            const users = useUsers()
 
-        const currentUserInfo = users.find(user => user.id === parseInt(currentUserId))
-        const friends = currentUserInfo.friends
+            const currentUserInfo = users.find(user => user.id === parseInt(currentUserId))
+            const friends = currentUserInfo.friends
 
-        const [prefix, deleteFriendId] = event.target.id.split("--")
+            const [prefix, deleteFriendId] = event.target.id.split("--")
 
-        //get the friend relationship id of the friend we want to delete
-        const foundFriend = friends.find(friend => friend.id === parseInt(deleteFriendId))
+            //get the friend relationship id of the friend we want to delete
+            const foundFriend = friends.find(friend => friend.following === parseInt(deleteFriendId))
 
-        deleteFriend(foundFriend.id)
+            deleteFriend(foundFriend.id)
+        }
     }
 })
