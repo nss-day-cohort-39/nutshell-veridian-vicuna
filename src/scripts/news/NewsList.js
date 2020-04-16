@@ -34,8 +34,15 @@ const render = (newsToRender) => {
 }
 export const NewsList = () => {
   const news = useNews()
+
+  const currentUserId = sessionStorage.getItem('activeUser')
+
+  const filteredUserNews = news.filter(
+    (userNews) => userNews.userId === parseInt(currentUserId)
+  )
+
   contentTarget.innerHTML += `
     <div class="newsForm"></div>
-    <div class="newsList">${render(news)}</div>
+    <div class="newsList">${render(filteredUserNews)}</div>
   `
 }
