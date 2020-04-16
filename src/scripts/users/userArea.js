@@ -8,6 +8,7 @@
 import { useUsers } from "./userProvider.js"
 import { ShowLogoutButton } from "../userAuth/LogoutButton.js"
 import { ShowFriendList } from "../friends/FriendList.js"
+import { ShowAddFriendForm } from "../friends/AddNewFriendForm.js"
 
 const contentTarget = document.querySelector(".user")
 
@@ -27,9 +28,12 @@ export const userArea = () => {
 
     contentTarget.innerHTML += `
     <div id="friendsContainer">
-    <div id="friendList">
-    <h2>My Friends</h2>
-    ${ShowFriendList()}
-    </div>
+        <div id="friendList">
+            <h2>My Friends</h2>
+            ${ShowFriendList()}
+        </div>
+        <div id="friendForm">
+            ${ShowAddFriendForm()}
+        </div>
     </div>`
 }

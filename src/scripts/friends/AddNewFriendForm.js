@@ -7,22 +7,36 @@
 
 import { useUsers } from "../users/userProvider.js"
 
-const currentUserId = document.querySelector("#currentUserId").value
+const eventHub = document.querySelector(".container")
 
 export const ShowAddFriendForm = () => {
+        const currentUserId = document.querySelector("#currentUserId").value
         const users = useUsers()
 
         return `
     <div id="friendForm">
-        <datalist id="newFriendId">
+    <input id="newFriendName" list="friendDatalist">
+        <datalist id="friendDatalist">
         ${users.map(user => {
             //map through all the users to create a datalist form element
             if (user.id !== parseInt(currentUserId)) {
-                return `<option value="${user.id}">${user.username}</option>`
+                return `<option value="${user.username}">`
             }
-        })}
+        }).join('')}
     </datalist>
     <button id="AddFriendButton">Add Friend</button>
     </div>
     `
 }
+
+eventHub.addEventListener("click", event => {
+    if (event.target.id === "AddFriendButton") {
+        const addNewFriendEvent = new CustomEvent("AddNewFriend", {
+            detail: {
+                friendName: document.querySelector("#newFriendName").value
+            }
+        })
+
+        eventHub.dispatchEvent(addNewFriendEvent)
+    }
+})
