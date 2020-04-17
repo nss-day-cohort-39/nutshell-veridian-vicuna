@@ -6,7 +6,7 @@ const eventHub = document.querySelector('.container')
 const contentTarget = document.querySelector('.news')
 
 eventHub.addEventListener('newsStateChanged', (customEvent) => {
-  NewsList(xxxxxxxxxx)
+  NewsList()
 })
 
 // .news is wrap div
