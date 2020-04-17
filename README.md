@@ -1,5 +1,8 @@
 # Nutshell: The Information Dashboard
 
+Link to our Sketchboard:
+https://sketchboard.me/zB4qio8EfUXV#/
+
 ## Setup: Follow these steps exactly
 
 1. Clone this repository
