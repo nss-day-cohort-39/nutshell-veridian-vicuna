@@ -3,7 +3,7 @@
 //HTML representation of a single event 
 export const Event = (eventObject, chosenUser) => {
     return `
-        <article class="singleEvent">
+        <article class="singleEvent ${chosenUser.id}">
         <div class="headflexRow">
             <h2 class="eventName">${eventObject.name}</h2>
             
