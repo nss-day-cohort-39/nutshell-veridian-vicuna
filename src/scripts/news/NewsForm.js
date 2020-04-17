@@ -29,6 +29,7 @@ eventHub.addEventListener('click', (clickEvent) => {
 
     // Change API state and application state
     saveNews(newNews)
+    contentTarget.classList.add('hide')
   }
 })
 

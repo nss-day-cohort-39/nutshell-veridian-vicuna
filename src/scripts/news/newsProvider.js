@@ -4,7 +4,7 @@
 
 let news = []
 
-const eventHub = document.querySelector('.news')
+const eventHub = document.querySelector('.container')
 
 const dispatchStateChangeEvent = () => {
   const newsStateChangedEvent = new CustomEvent('newsStateChanged')

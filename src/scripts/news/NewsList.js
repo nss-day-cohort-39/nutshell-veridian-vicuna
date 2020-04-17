@@ -12,13 +12,6 @@ eventHub.addEventListener('newsStateChanged', (customEvent) => {
   NewsList()
 })
 
-// .news is wrap div
-contentTarget.innerHTML = `
-  <div class="headflexRow">
-    <h2>News</h2>
-    <button id="plusBtn">+</button>
-  </div>
-`
 contentTarget.addEventListener('click', (clickEvent) => {
   if (clickEvent.target.id === 'plusBtn') {
     // console.log('yeah')
@@ -36,6 +29,13 @@ const render = (newsToRender) => {
     .join('')
 }
 export const NewsList = () => {
+  // .news is wrap div
+  contentTarget.innerHTML = `
+    <div class="headflexRow">
+      <h2>News</h2>
+      <button id="plusBtn">+</button>
+    </div>
+  `
   const news = useNews()
 
   const currentUserId = sessionStorage.getItem('activeUser')
