@@ -1,59 +1,73 @@
-import { saveNews, useNews } from './newsProvider.js'
+// Drew Harper
+// News Form for submitting a News article
+// Contains eventListener for Submitting News form
+// Renders form
+// eventHandler xOut for closing News Form
+
+import { saveNews } from './newsProvider.js'
 
 const eventHub = document.querySelector('.container')
 const contentTarget = document.querySelector('.newsForm')
 
-let visibility = false
-
-eventHub.addEventListener('newsFormButtonClicked', (customEvent) => {
-  visibility = !visibility
-
-  if (visibility) {
-    contentTarget.classList.remove('hide')
-  } else {
-    contentTarget.classList.add('hide')
-  }
-})
-
 // Handle browser-generated click event in component
-contentTarget.addEventListener('click', (clickEvent) => {
-  if (clickEvent.target.className === 'saveNews') {
-    const newsHead = document.querySelector('.newsHead').value
-    const newsSynopsis = document.querySelector('.newsSynopsis').value
-    const newsUrl = document.querySelector('.newsUrl').value
+eventHub.addEventListener('click', (clickEvent) => {
+  if (clickEvent.target.id === 'saveNews') {
+    const title = document.querySelector('#title').value
+    const synopsis = document.querySelector('#synopsis').value
+    const url = document.querySelector('#url').value
+    const timestamp = document.querySelector('#timestamp').value
+    const userId = sessionStorage.getItem('activeUser')
 
     // Make a new object representation of a news
     const newNews = {
-      newsHead: newsText,
-      newsSynopsis: newsText,
-      newsUrl: newsText,
-      // timestamp: Date.now(),
+      title: title,
+      synopsis: synopsis,
+      url: url,
+      timestamp: Date.now(),
+      userId: parseInt(userId),
     }
 
     // Change API state and application state
     saveNews(newNews)
+    contentTarget.classList.add('hide')
   }
 })
 
 const render = () => {
-  contentTarget.classList.add('hide')
-  const allNews = useNews()
+  const contentTarget = document.querySelector('.newsForm')
 
-  contentTarget.innerHTML = `
+  return `
     <div class="formWrap">
-      <form class="panel dh-Form marB1">
+      <div class="dh-Form panel fadeBackground marB1">
 
-        <label for="newsSuspect">Suspect:</label>
+        <div id="xOut" class="xOut">X</div>
 
-        <label for="newsText">News:</label>
-        <textarea type="text" id="newsText" rows=5></textarea>
+        <label for="title">Title</label>
+        <input type="text" id="title">
 
-        <button id="saveNews" class="btnSmall marT1">Save News</button>
-      </form>
+        <label for="synopsis">Synopsis</label>
+        <textarea type="text" id="synopsis" rows=3></textarea>
+
+        <label for="url">Url</label>
+        <input type="text" id="url">
+
+        <input type="hidden" id="timestamp" value="">
+
+        <button id="saveNews" class="btnSmall marT2">Add News</button>
+      </div>
     </div>
   `
 }
 
+eventHub.addEventListener('click', (clickEvent) => {
+  if (clickEvent.target.id === 'xOut') {
+    const contentTarget = document.querySelector('.newsForm')
+    contentTarget.classList.add('hide')
+  }
+})
+
 export const NewsForm = () => {
-  render()
+  const contentTarget = document.querySelector('.newsForm')
+
+  contentTarget.innerHTML = render()
 }

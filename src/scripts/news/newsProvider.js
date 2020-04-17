@@ -1,6 +1,10 @@
+// Drew Harper
+// database for news
+// { useNews, getNews,saveNews, deleteNews }
+
 let news = []
 
-const eventHub = document.querySelector('.news')
+const eventHub = document.querySelector('.container')
 
 const dispatchStateChangeEvent = () => {
   const newsStateChangedEvent = new CustomEvent('newsStateChanged')
@@ -26,6 +30,14 @@ export const saveNews = (news) => {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify(news),
+  })
+    .then(getNews)
+    .then(dispatchStateChangeEvent)
+}
+
+export const deleteNews = (newsId) => {
+  return fetch(`http://localhost:8088/news/${newsId}`, {
+    method: 'DELETE',
   })
     .then(getNews)
     .then(dispatchStateChangeEvent)
