@@ -1,3 +1,6 @@
+// Drew Harper
+// Handles creation of News, displaying of News, deleting of News
+
 import { News } from './News.js'
 import { NewsForm } from './NewsForm.js'
 import { deleteNews, useNews } from './newsProvider.js'

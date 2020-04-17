@@ -1,3 +1,6 @@
+// Drew Harper
+// HTML Representation for News article
+
 import { useUsers } from '../users/userProvider.js'
 // let date = new Date(UNIX_Timestamp * 1000)
 export const News = (newsObj) => {
@@ -7,7 +10,7 @@ export const News = (newsObj) => {
   const author = users.find((user) => user.id === parseInt(newsObj.userId))
 
   return `
-    <div class="box">
+    <article class="box">
       <button id="deleteEvent--${newsObj.id}" class="xOut">X</button>
       <h4><a href="${newsObj.url}" target="_blank">${newsObj.title}</a></h4>
       <p>${newsObj.synopsis}</p>
@@ -15,6 +18,6 @@ export const News = (newsObj) => {
       <p class="timestamp">${new Date(
         newsObj.timestamp
       ).toLocaleDateString()}</p>
-    </div>
+    </article>
   `
 }

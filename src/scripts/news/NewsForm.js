@@ -1,3 +1,9 @@
+// Drew Harper
+// News Form for submitting a News article
+// Contains eventListener for Submitting News form
+// Renders form
+// eventHandler xOut for closing News Form
+
 import { saveNews } from './newsProvider.js'
 
 const eventHub = document.querySelector('.container')

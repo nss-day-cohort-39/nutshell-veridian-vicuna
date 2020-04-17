@@ -1,3 +1,7 @@
+// Drew Harper
+// database for news
+// { useNews, getNews,saveNews, deleteNews }
+
 let news = []
 
 const eventHub = document.querySelector('.news')
