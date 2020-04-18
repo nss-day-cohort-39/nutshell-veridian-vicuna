@@ -10,7 +10,8 @@
 @import './dh-hide-show.css';
 @import './dh-text.css';
 @import './dh-typography.css';
-/* @import "./dh-xOut.css"; */
+@import './dh-xOut.css';
+@import './dh-border-radius.css';
 
 img,
 video,
